@@ -23,6 +23,7 @@ const Navbar = props => {
         </div>
       ) : (
         <div>
+          <Link to="/">Home</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
         </div>

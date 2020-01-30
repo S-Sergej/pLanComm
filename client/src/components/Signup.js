@@ -17,7 +17,6 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     signup(this.state.username, this.state.password).then(data => {
       if (data.message) {
         // handle errors
