@@ -6,6 +6,7 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    email: "",
     error: ""
   };
 
@@ -17,7 +18,7 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    signup(this.state.username, this.state.password).then(data => {
+    signup(this.state.username, this.state.password, this.state.email).then(data => {
       if (data.message) {
         // handle errors
         this.setState({
@@ -49,6 +50,7 @@ class Signup extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
+          
           <Form.Group>
             <Form.Label htmlFor="password">Password: </Form.Label>
             <Form.Control
@@ -59,6 +61,18 @@ class Signup extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
+
+          <Form.Group>
+            <Form.Label htmlFor="email">Email: </Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              id="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
