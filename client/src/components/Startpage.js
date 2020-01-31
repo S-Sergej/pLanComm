@@ -4,8 +4,8 @@ class Startpage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Startpage</h1>
-                <p> ... this is the homepage of the application ... </p>
+                <h1>pLanComm</h1>
+                <p> wellcome to the private lan community !</p>
             </div>
         )
     }
