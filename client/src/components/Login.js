@@ -3,6 +3,7 @@ import { login } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
 
 class Login extends Component {
+
   state = {
     username: "",
     password: "",
@@ -58,12 +59,15 @@ class Login extends Component {
               value={this.state.password}
               onChange={this.handleChange}
             />
+
           </Form.Group>
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
           <Button type="submit">Log in</Button>
         </Form>
+        
+<a href= 'http://localhost:5555/api/auth/google'>Login with google</a>
       </div>
     );
   }

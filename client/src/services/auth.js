@@ -30,6 +30,7 @@ const login = (username, password, email) => {
     });
 };
 
+
 const logout = () => {
   axios.delete("/api/auth/logout");
 };
