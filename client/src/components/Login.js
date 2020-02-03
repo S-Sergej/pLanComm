@@ -1,8 +1,12 @@
+import GoogleButton from 'react-google-button';
 import React, { Component } from "react";
 import { login } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
+import {Link } from "react-router-dom";
+require('dotenv').config();
 
 class Login extends Component {
+  
   state = {
     username: "",
     password: "",
@@ -33,8 +37,10 @@ class Login extends Component {
       }
     });
   };
-
+  
   render() {
+    
+    
     return (
       <div>
         <h2>Login</h2>
@@ -58,12 +64,15 @@ class Login extends Component {
               value={this.state.password}
               onChange={this.handleChange}
             />
+
           </Form.Group>
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
           <Button type="submit">Log in</Button>
         </Form>
+
+        <GoogleButton onClick={() => window.location.href=process.env.REACT_APP_CALLBACK_URL}/>
       </div>
     );
   }
