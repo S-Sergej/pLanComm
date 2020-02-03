@@ -1,9 +1,12 @@
+import GoogleButton from 'react-google-button';
 import React, { Component } from "react";
 import { login } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
+import {Link } from "react-router-dom";
+require('dotenv').config();
 
 class Login extends Component {
-
+  
   state = {
     username: "",
     password: "",
@@ -34,8 +37,10 @@ class Login extends Component {
       }
     });
   };
-
+  
   render() {
+    
+    
     return (
       <div>
         <h2>Login</h2>
@@ -66,8 +71,8 @@ class Login extends Component {
           )}
           <Button type="submit">Log in</Button>
         </Form>
-        
-<a href= 'http://localhost:5555/api/auth/google'>Login with google</a>
+
+        <GoogleButton onClick={() => window.location.href=process.env.REACT_APP_CALLBACK_URL}/>
       </div>
     );
   }

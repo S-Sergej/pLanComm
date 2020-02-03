@@ -52,24 +52,20 @@ passport.use(
   },
 
   (accessToken, refreshToken, profile, done) => {
-    console.log("Google account details:", profile.displayName, profile._json.email, profile.id);
      User.findOne({googleID: profile.id})
        .then(user => {
          if (user) {
-           console.log("User Found: >>>>>>>")
           return done(null, user);
         
          }
          if (!user){
-           console.log("User not Found: <<<<<<<<<<<<<")
          User.create({ username: profile.displayName, email: profile._json.email, googleID: profile.id, avatarURL: profile.photos[0].value })           
          .then(newUser => {
-          console.log("User created: <<<<<<<<<<<<<") 
              return done(null, newUser);
            })
-           .catch(err => done(err)); // closes User.create()
+           .catch(err => done(err)); 
           }})
-       .catch(err => done(err)); // closes User.findOne()
+       .catch(err => done(err));
    }
 
 ) 

@@ -51,10 +51,8 @@ router.post('/login', (req, res, next) => {
       return res.status(500).json({ message: 'Error while authenticating' })
     }
     if (!user) {
-      // no user found with username or password didn't match
       return res.status(400).json({ message: 'Invalid credentials' })
     }
-    // passport req.login
     req.login(user, err => {
       if (err) res.status(500).json(err)
       res.json(user)
@@ -80,7 +78,6 @@ router.get(
 );
 
 router.get('/loggedin', (req, res) => {
-  console.log('>>>>>>>>>>>>>>>>>>>>>>> user: ' + req.user)
   res.json(req.user)
 })
 
