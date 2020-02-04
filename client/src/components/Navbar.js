@@ -16,7 +16,6 @@ const Navbar = props => {
       {props.user ? (
         <div>
           <Link to="/">Welcome {props.user.username}</Link>
-          <Link to="/projects">Projects</Link>
           <Link to="/" onClick={handleLogout}>
             Logout
           </Link>
