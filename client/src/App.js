@@ -58,7 +58,7 @@ class App extends React.Component {
             props => <EventHistory {...props} setUser={this.setUser} />
           }/>
            <Route exact path="/guestbook" render={
-            props => <Guestbook {...props} setUser={this.setUser} />
+            props => <Guestbook {...props} user={this.state.user} />
           }/>
           <Route exact path="/playerdetail" render={
             props => <Playerdetails {...props} setUser={this.setUser} />
