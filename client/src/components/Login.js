@@ -39,7 +39,8 @@ class Login extends Component {
   };
   
   render() {
-    
+    const REACT_APP_CALLBACK_URL_LOCAL='http://localhost:5555/api/auth/google'
+    const REACT_APP_CALLBACK_URL='http://plancomm.herokuapp.com/api/auth/google'
     
     return (
       <div>
@@ -71,8 +72,8 @@ class Login extends Component {
           )}
           <Button type="submit">Log in</Button>
         </Form>
-
-        <GoogleButton onClick={() => window.location.href=process.env.REACT_APP_CALLBACK_URL}/>
+        {/*Change constant for use on heroku side before build*/}
+        <GoogleButton onClick={() => window.location.href=REACT_APP_CALLBACK_URL}/>
       </div>
     );
   }
