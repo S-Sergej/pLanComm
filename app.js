@@ -117,5 +117,7 @@ app.use("/api/auth", authRoutes);
 const players = require("./routes/players");
 app.use("/api/players" , players)
 
+const guestbook = require("./routes/guestbook");
+app.use("/api/guestbook", guestbook)
 
 module.exports = app;

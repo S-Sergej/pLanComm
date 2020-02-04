@@ -53,3 +53,9 @@ h2 {
 .projects-container > * {
   flex: 1;
 }
+
+
+.guestbook{
+  border: 1px solid black;
+  margin: 5px 25px 5px 25px
+}
