@@ -53,3 +53,8 @@ h2 {
 .projects-container > * {
   flex: 1;
 }
+
+.SocialButtons {
+  display: flex;
+  justify-content: center;
+}

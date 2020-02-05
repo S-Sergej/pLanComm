@@ -3,6 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs"); // !!!
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GitHubStrategy = require('passport-github').Strategy;
 
 passport.serializeUser((loggedInUser, cb) => {
   cb(null, loggedInUser._id);
@@ -69,4 +70,32 @@ passport.use(
    }
 
 ) 
+);
+
+// GitHub Strategy
+passport.use(
+  new GitHubStrategy({
+    clientID: process.env.GITHUB_ID,
+    clientSecret: process.env.GITHUB_SECRET,
+    callbackURL: "/api/auth/github/callback",
+    scope: 'user:email'
+  },
+  (accessToken, refreshToken, profile, done) => {
+    User.findOne({githubId: profile.id})
+    .then(user => {
+      if (user) {
+        console.log("Found User: ", profile.username)
+        return done(null, user);
+      }
+    if (!user){
+      console.log(">>>>>>>>>>GITHUB USER NOT FOUND, going create one in DB:", profile);
+      User.create({ username: profile.username, email: profile.emails[0].value, githubId: profile.id, avatarURL: profile.photos[0].value})
+      .then(newUser => {
+        return done(null, newUser);
+      })
+      .catch(err => done(err))
+      }})
+      .catch(err => done(err));
+    }
+  ) 
 );
