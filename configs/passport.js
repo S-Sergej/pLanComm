@@ -84,11 +84,9 @@ passport.use(
     User.findOne({githubId: profile.id})
     .then(user => {
       if (user) {
-        console.log("Found User: ", profile.username)
         return done(null, user);
       }
     if (!user){
-      console.log(">>>>>>>>>>GITHUB USER NOT FOUND, going create one in DB:", profile);
       User.create({ username: profile.username, email: profile.emails[0].value, githubId: profile.id, avatarURL: profile.photos[0].value})
       .then(newUser => {
         return done(null, newUser);
