@@ -15,14 +15,17 @@ const Navbar = props => {
     <Nav className="nav justify-content-end" bg="primary">
       {props.user ? (
         <div>
-          <Link to="/">Welcome {props.user.username}</Link>
+          <Link to="/main">Welcome {props.user.username}</Link>
+          <Link to="/userprofil">UserProfile</Link>
+          <Link to="/game">Game</Link>
+          <Link to="/eventhistory">Event History</Link>
+          <Link to="/guestbook">Guestbook</Link>
           <Link to="/" onClick={handleLogout}>
             Logout
           </Link>
         </div>
       ) : (
         <div>
-          <Link to="/">Home</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
         </div>
