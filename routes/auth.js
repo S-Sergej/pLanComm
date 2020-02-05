@@ -54,7 +54,7 @@ router.post('/signup', (req, res) => {
               from: 'no-reply@plancomm.com',
               to: mailto,
               subject: 'pLanComm Verification Token', 
-              text: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + newToken.token + '.\n' 
+              text: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + newToken.token + '\n' 
             }
             transporter.sendMail(mailOptions, function (err) {
               if (err) { return res.status(500).json({ message: err.message }); }
