@@ -54,6 +54,9 @@ h2 {
   flex: 1;
 }
 
+.SocialButtons {
+  display: flex;
+  justify-content: center;
 
 .guestbook{
   border: 1px solid black;

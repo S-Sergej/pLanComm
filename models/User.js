@@ -6,7 +6,8 @@ const userSchema = new Schema(
     username: {type: String, required: true, unique: true},
 	  email: {type: String, required: true, unique: true},
 	  password: String,
-    googleID: String, 
+    googleID: String,
+    githubId: String,
     avatarURL: {
       type: String,
       default: "https://cdn.onlinewebfonts.com/svg/img_74993.png"
