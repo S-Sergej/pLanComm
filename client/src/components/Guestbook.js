@@ -48,8 +48,8 @@ export default class Guestbook extends Component {
         title: "",
         visibility: false
       });
-  })
-  this.showAllEntries()
+  }).then(res=>this.showAllEntries())
+  
 }
 
 
