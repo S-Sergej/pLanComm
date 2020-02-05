@@ -57,6 +57,7 @@ h2 {
 .SocialButtons {
   display: flex;
   justify-content: center;
+}
 
 .guestbook{
   border: 1px solid black;
