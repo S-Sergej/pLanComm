@@ -56,12 +56,10 @@ export default class Guestbook extends Component {
   render() {
         
         return (
-      <div className="guestBook">
-               
-    {this.state.guestbook.map(oneEntrie=>{
-      return <div className="guestbook" key={oneEntrie._id}><img style={{width: "50px"}} src={oneEntrie.user.avatarURL} alt="bild" /><p>{oneEntrie.user.username}</p><p className="p2">{oneEntrie.title}</p><p>{oneEntrie.entrie}</p></div>
-  })}
-        <button onClick={this.showGuestbookEntry}>Add Guestbook entry</button>{
+      <div className="guestBook-Align">
+      <button onClick={this.showGuestbookEntry}>Add Guestbook entry</button>
+      <div>
+      {
           this.state.visibility ? 
           <form onSubmit={this.createEntrie}>
           <div>
@@ -71,6 +69,12 @@ export default class Guestbook extends Component {
         </form> :
           null
         }
+    </div>
+    {this.state.guestbook.map(oneEntrie=>{
+      return <div className="guestbook" key={oneEntrie._id}><div className="guestBookUser"><img style={{width: "50px"}} src={oneEntrie.user.avatarURL} alt="bild" /><p>{oneEntrie.user.username}</p></div><div><h1>{oneEntrie.title}</h1><p>{oneEntrie.entrie}</p></div></div>
+  })}
+        
+        
         
       </div>
       )

@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import { login } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
 import {Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 require('dotenv').config();
 
 class Login extends Component {
@@ -72,7 +74,7 @@ class Login extends Component {
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
-          <Button type="submit">Log in</Button>
+          <Button type="submit">Log in <FontAwesomeIcon icon="sign-in-alt"/></Button>
         </Form>
         {/*links for heroku usage configured*/}
         <div className="SocialButtons">

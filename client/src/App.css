@@ -59,7 +59,65 @@ h2 {
   justify-content: center;
 }
 
+.guestBook-Align{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .guestbook{
   border: 1px solid black;
-  margin: 5px 25px 5px 25px
+  margin: 5px 150px 5px 25px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 800px;
+  height: 150px;
+  }
+
+.guestbook div{
+  padding: 15px 25px;
+ }
+
+.guestbook div p{
+  text-align: left;
 }
+
+.guestbook div h1{
+  text-align: left;
+  font-size: 20px;
+}
+
+.guestBookUser{
+  border: 1px solid;
+  margin: 5px 5px;
+  background-color: grey;
+  color: whitesmoke;
+ }
+
+.UserProfil{
+  margin: 50px 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: column;
+}
+
+.UserProfil img{
+ width: 100px
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: left;
+  padding: 0 5px
+}
+
