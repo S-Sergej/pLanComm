@@ -12,6 +12,13 @@ import EventHistory from "./components/EventHistory"
 import Guestbook from "./components/Guestbook"
 import Playerdetails from "./components/Playerdetails"
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(fab, fas)
+
 
 class App extends React.Component {
   state = {
@@ -64,6 +71,7 @@ class App extends React.Component {
             props => <Playerdetails {...props} setUser={this.setUser} />
           }/>
         </Switch>
+        <footer><FontAwesomeIcon icon="copyright" /><i> by JAS</i></footer>
       </div>
     );
   }
