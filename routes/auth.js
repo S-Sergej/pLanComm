@@ -35,17 +35,14 @@ router.post('/signup', (req, res) => {
           })
         .then(newUser => {
           //create and save verification token
-          console.log("Now lets try to generate a token for:", newUser)
-          console.log("Usermail is: ",newUser.email)
-
-
           var token = Token.create({ 
             _userId: newUser._id, 
-            token: crypto.randomBytes(16).toString('hex') 
-          })
+            token: crypto.randomBytes(16).toString('hex')
+          });
 
-          token.then(()=>{
-            console.log("TOKEN GESPEICHERT, WEITER GEHTS")
+          let mailto = newUser.email;
+
+          token.then((newToken)=>{
             var transporter = nodemailer.createTransport({
               service: 'gmail', 
               auth: { 
@@ -54,15 +51,16 @@ router.post('/signup', (req, res) => {
               } 
             })
             const mailOptions = { 
-              from: 'no-reply@plancomm.com', 
-              to: 'plancomm.noreply@gmail.com', 
+              from: 'no-reply@plancomm.com',
+              to: mailto,
               subject: 'pLanComm Verification Token', 
-              html: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n' 
+              text: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + newToken.token + '.\n' 
             }
             transporter.sendMail(mailOptions, function (err) {
               if (err) { return res.status(500).json({ message: err.message }); }
               res.status(200).json('A verification email has been sent to ' + newUser.email + '.');
             })
+
           })
           // passport login
             req.login(newUser, err => {
@@ -73,7 +71,7 @@ router.post('/signup', (req, res) => {
         })
     })
     .catch(err => {
-      console.log("SOME BLALALALA: ",JSON.stringify(err.stack))
+      console.log("SOME Stack here: ",JSON.stringify(err.stack))
       res.status(500).json({message: 'some Error here: ' + err})
       })
     })
