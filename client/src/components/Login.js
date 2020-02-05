@@ -74,7 +74,7 @@ class Login extends Component {
           )}
           <Button type="submit">Log in</Button>
         </Form>
-        {/*links for heroky usage configured*/}
+        {/*links for heroku usage configured*/}
         <div className="SocialButtons">
         <GoogleLoginButton style={{width: "300px"}} onClick={() => window.location.href=REACT_APP_CALLBACK_URL}/>
         <GithubLoginButton style={{width: "300px"}} onClick={() => window.location.href=GITHUB_REDIRECT} />
