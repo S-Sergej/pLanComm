@@ -29,7 +29,7 @@ class Signup extends Component {
         // lift the data up to the App state
         this.props.setUser(data);
         // redirect to "/projects"
-        //this.props.history.push("/projects");
+        this.props.history.push("/login");
       }
     });
   };
