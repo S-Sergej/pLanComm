@@ -114,7 +114,7 @@ router.post('/signup', (req, res) => {
                 if (err) { 
                     return res.status(500).send({ msg: err.message }); 
                   }
-              return res.redirect('/login')
+              return res.redirect('/')
             })
         })
     })
