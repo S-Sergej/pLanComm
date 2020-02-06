@@ -32,6 +32,12 @@ router.post("/create", (req,res,next)=>{
 //Hier wird die read only Collection Sessions in die Variable Test gespeichert
 const Test = mongoose.model('Session', new Schema(), 'sessions');
 
+router.delete("/delete/:id", (req,res,next)=>{
+  const id=(req.params.id)
+  Guestbook.findByIdAndDelete(id)
+  .then(res=>console.log("has been deleted"))
+
+})
 
 
 

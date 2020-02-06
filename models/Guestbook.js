@@ -10,7 +10,7 @@ const guestbookSchema = new Schema({
   },
   answer: [{
     type: Schema.Types.ObjectId,
-    ref: "Guestbook"
+    ref: "Answer"
   }]
 }, {
   timestamps: true

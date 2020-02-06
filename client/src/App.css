@@ -64,6 +64,7 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0 0 50px 0
 }
 
 .guestbook{
@@ -97,6 +98,17 @@ h2 {
   color: whitesmoke;
  }
 
+.guestbookForm div{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.guestbookForm textarea{
+  width: 100%
+}
+
+
 .UserProfil{
   margin: 50px 0;
   display: flex;
@@ -120,4 +132,39 @@ footer {
   text-align: left;
   padding: 0 5px
 }
+
+
+.gameForm{
+  margin: 50px 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 10px 10px 15px grey;
+  height: 300px;
+
+}
+
+.gameForm label{
+  width: 200px;
+  
+}
+
+.gameForm input, textarea, select{
+  width: 350px
+}
+
+
+.gamesCard{
+  box-shadow: 5px 5px 15px grey;
+  width: 200px;
+}
+
+.cardDisplay{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
 

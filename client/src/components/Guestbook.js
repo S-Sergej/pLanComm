@@ -1,31 +1,28 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import GuestbookModal from "./GuestbookModal"
 
 
 export default class Guestbook extends Component {
   constructor(props){
     super(props);
     this.state={
-      visibility: false,
       guestbook: [],
-      entrie: "",
-      title: "",
-      showGuestbook: false
-    }
+      currentUser: this.props.user,
+      showAnswer: false,
+      
+      
+       }
   }
 
-  showGuestbookEntry=()=>{
-    this.setState({
-      visibility: !this.state.visibility
-    })
-  }
-
-  showAllEntries=()=>{
+  //Method to show all entries in the Guestbook
+   showAllEntries=()=>{
     axios.get("/api/guestbook")
     .then(response=>{
       this.setState({
-        guestbook: response.data
-      })
+        guestbook: response.data,
+       })
     })
   }
 
@@ -33,49 +30,34 @@ export default class Guestbook extends Component {
     this.showAllEntries();
   }
 
-  addEntrie=(event)=>{
-    this.setState({[event.target.name] : event.target.value})
-  }
-  
-  createEntrie=(event)=>{
-    
-    event.preventDefault();
-    axios.post("/api/guestbook/create", {title: this.state.title, entrie: this.state.entrie, user: this.props.user._id})
-    .then(response => {
-     
-      this.setState({
-        entrie: "",
-        title: "",
-        visibility: false
-      });
-  }).then(res=>this.showAllEntries())
-  
-}
+
+    //Delete guestbook entrie only for Admins
+    deleteEntrie(id){
+      axios.delete(`/api/guestbook/delete/${id}`)
+      this.showAllEntries()
+
+    }
 
 
   render() {
-        
-        return (
+    
+     return (
+       
       <div className="guestBook-Align">
-      <button onClick={this.showGuestbookEntry}>Add Guestbook entry</button>
-      <div>
-      {
-          this.state.visibility ? 
-          <form onSubmit={this.createEntrie}>
-          <div>
-          <label>Titel <input type="text" name="title" value={this.state.title} onChange={this.addEntrie} /></label>
-          <label>Eintrag <textarea cols="100" rows="5" name="entrie" value={this.state.entrie} onChange={this.addEntrie}></textarea></label></div>
-          <button type="submit">Posten</button>
-        </form> :
-          null
-        }
-    </div>
+        <h1>Welcome to the Guestbook</h1>
+    <GuestbookModal showAll={this.showAllEntries} user={this.state.currentUser} />
+    
     {this.state.guestbook.map(oneEntrie=>{
-      return <div className="guestbook" key={oneEntrie._id}><div className="guestBookUser"><img style={{width: "50px"}} src={oneEntrie.user.avatarURL} alt="bild" /><p>{oneEntrie.user.username}</p></div><div><h1>{oneEntrie.title}</h1><p>{oneEntrie.entrie}</p></div></div>
+      const date= oneEntrie.createdAt
+      const d= new Date(date)
+     
+    return <div key={oneEntrie._id}><div className="guestbook" >
+      <div className="guestBookUser"><img style={{width: "50px"}} src={oneEntrie.user.avatarURL} alt="bild" />
+      <p>{oneEntrie.user.username}</p></div><div><h1>{oneEntrie.title}</h1>
+      <p>{oneEntrie.entrie}</p><p>{d.toLocaleDateString()} {d.toLocaleTimeString()}</p></div></div>{(this.state.currentUser.userType ==="admin") ? <button onClick={()=>this.deleteEntrie(oneEntrie._id)}><FontAwesomeIcon icon="trash-alt" /></button> : null}
+      </div>
   })}
-        
-        
-        
+ 
       </div>
       )
     }
