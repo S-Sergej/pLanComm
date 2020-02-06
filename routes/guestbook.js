@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 router.get("/", (req,res,next)=>{
-  Guestbook.find({})
+  Guestbook.find({}).sort({createdAt: -1})
   .populate("user")
   .then(guestbook=>{
     res.json(guestbook);
