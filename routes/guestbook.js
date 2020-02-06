@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 router.get("/", (req,res,next)=>{
-  Guestbook.find({})
+  Guestbook.find({}).sort({createdAt: -1})
   .populate("user")
   .then(guestbook=>{
     res.json(guestbook);
@@ -32,6 +32,12 @@ router.post("/create", (req,res,next)=>{
 //Hier wird die read only Collection Sessions in die Variable Test gespeichert
 const Test = mongoose.model('Session', new Schema(), 'sessions');
 
+router.delete("/delete/:id", (req,res,next)=>{
+  const id=(req.params.id)
+  Guestbook.findByIdAndDelete(id)
+  .then(res=>console.log("has been deleted"))
+
+})
 
 
 

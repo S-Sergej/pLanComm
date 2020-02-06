@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { signup } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Signup extends Component {
   state = {
@@ -76,7 +77,7 @@ class Signup extends Component {
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
-          <Button type="submit">Sign up</Button>
+          <Button type="submit">Sign up <FontAwesomeIcon icon="user-plus" /></Button>
         </Form>
       </div>
     );
