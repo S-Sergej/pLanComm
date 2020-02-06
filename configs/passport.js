@@ -60,7 +60,7 @@ passport.use(
         
          }
          if (!user){
-         User.create({ username: profile.displayName, email: profile._json.email, googleID: profile.id, avatarURL: profile.photos[0].value })           
+         User.create({ username: profile.displayName, email: profile._json.email, isVerified: true, googleID: profile.id, avatarURL: profile.photos[0].value })           
          .then(newUser => {
              return done(null, newUser);
            })
@@ -87,7 +87,7 @@ passport.use(
         return done(null, user);
       }
     if (!user){
-      User.create({ username: profile.username, email: profile.emails[0].value, githubId: profile.id, avatarURL: profile.photos[0].value})
+      User.create({ username: profile.username, email: profile.emails[0].value, isVerified: true, githubId: profile.id, avatarURL: profile.photos[0].value})
       .then(newUser => {
         return done(null, newUser);
       })

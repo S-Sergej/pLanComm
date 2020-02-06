@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import {Switch, Route, Redirect } from "react-router-dom";
+import {Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Startpage from "./components/Startpage";
 import Signup from "./components/Signup";
@@ -31,13 +31,6 @@ class App extends React.Component {
     });
   };
 
-  /*projectsRoute = props => {
-    if (this.state.user) {
-      return <Projects {...props} />;
-    } else {
-      return <Redirect to="/" />;
-    }
-  } */
 
   render() {
     
