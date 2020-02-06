@@ -27,7 +27,7 @@ class Signup extends Component {
       } else {
         // no error
         // lift the data up to the App state
-        this.props.setUser(data);
+        //this.props.setUser(data);
         // redirect to "/projects"
         this.props.history.push("/login");
       }

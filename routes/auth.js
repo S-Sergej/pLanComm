@@ -51,10 +51,10 @@ router.post('/signup', (req, res) => {
               } 
             })
             const mailOptions = { 
-              from: 'no-reply@plancomm.com',
+              from: process.env.MAILER_GOOGLEMAIL,
               to: mailto,
               subject: 'pLanComm Verification Token', 
-              text: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + newToken.token + '\n' 
+              text: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/api\/auth\/confirmation\/' + newToken.token + '\n' 
             }
             transporter.sendMail(mailOptions, function (err) {
               if (err) { return res.status(500).json({ message: err.message }); }
@@ -62,12 +62,13 @@ router.post('/signup', (req, res) => {
             })
 
           })
-          // passport login
-            req.login(newUser, err => {
+          //signup route should not automatically set session for newUser until the account has been verified
+          /* passport login
+              req.login(newUser, err => {
               if (err) res.status(500).json(err)
-              //else res.json(newUser)
+              else res.json(newUser)
               newUser = req.session.user
-          })
+            })*/
         })
     })
     .catch(err => {
@@ -76,6 +77,9 @@ router.post('/signup', (req, res) => {
       })
     })
   }),
+
+
+
 
   router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
@@ -88,38 +92,33 @@ router.post('/signup', (req, res) => {
       req.login(user, err => {
         if (err) res.status(500).json(err)
         if (!user.isVerified) {
-          return res.status(401).json({message: 'Your account has not been verified'});
+          return res.status(401).json({message: 'Your account has not been verified yet. Please check your emails for verification link'});
         }
-        //token stuff
-        res.send({token: generateToken(user), user: json(user)})
         res.json(user)
+        user = req.session.user
       })
     })(req, res, next)
   }),
 
-  router.post('/confirmation', (req, res, next) => {
-    var errors = req.validationErrors();
-    if (errors) return res.status(400).send(errors);
 
-    // Find a matching token
-    Token.findOne({ token: req.body.token }, function (err, token) {
+  router.get('/confirmation/:token', (req, res, next) => {
+    Token.findOne({ token: req.params.token }, function (err, token) {
         if (!token) return res.status(400).send({ type: 'not-verified', msg: 'We were unable to find a valid token. Your token my have expired.' });
 
-        // If token found, find a matching user
-        User.findOne({ _id: token._userId, email: req.body.email }, function (err, user) {
-            if (!user) return res.status(400).json({ message: 'We were unable to find a user for this token.' });
-            if (user.isVerified) return res.status(400).json({ message: 'This user has already been verified.' });
-
-            // Verify and save the user
+        User.findOne({ _id: token._userId}, function (err, user) {
+            if (!user) return res.status(400).json('We were unable to find any user for this not verified token.');
+            if (user.isVerified) return res.status(400).json('This user has already been verified.' );
+            
             user.isVerified = true;
             user.save(function (err) {
-                if (err) { return res.status(500).send({ msg: err.message }); }
-                res.status(200).send("The account has been verified. Please log in.");
-            });
-        });
+                if (err) { 
+                    return res.status(500).send({ msg: err.message }); 
+                  }
+              return res.redirect('/')
+            })
+        })
     })
   }),
-
 
   router.get(
     '/google',

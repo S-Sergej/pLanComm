@@ -1,9 +1,7 @@
 import {GoogleLoginButton, GithubLoginButton} from 'react-social-login-buttons';
-import GoogleButton from 'react-google-button';
 import React, { Component } from "react";
 import { login } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
-import {Link } from "react-router-dom";
 require('dotenv').config();
 
 class Login extends Component {
@@ -40,9 +38,9 @@ class Login extends Component {
   };
   
   render() {
-    const REACT_APP_CALLBACK_URL_LOCAL='http://localhost:5555/api/auth/google'
+    //const REACT_APP_CALLBACK_URL_LOCAL='http://localhost:5555/api/auth/google'
     const REACT_APP_CALLBACK_URL='http://plancomm.herokuapp.com/api/auth/google'
-    const GITHUB_LOCAL_REDIRECT='http://localhost:5555/api/auth/github'
+    //const GITHUB_LOCAL_REDIRECT='http://localhost:5555/api/auth/github'
     const GITHUB_REDIRECT='http://plancomm.herokuapp.com/api/auth/github'
     return (
       <div>
