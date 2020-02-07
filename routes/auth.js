@@ -135,7 +135,7 @@ router.post('/signup', (req, res) => {
     '/google/callback',
     passport.authenticate('google', {
       failureRedirect: '/login',
-      successRedirect: '/',
+      successRedirect: '/main',
     })
   );
 
@@ -150,7 +150,7 @@ router.post('/signup', (req, res) => {
     '/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
-    res.redirect('/');
+    res.redirect('/main');
   });
 
 
