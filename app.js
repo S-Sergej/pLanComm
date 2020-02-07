@@ -108,6 +108,9 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 // ROUTES MIDDLEWARE STARTS HERE:
 
+const index = require("./routes/index");
+app.use("/", index);
+
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
@@ -120,7 +123,8 @@ app.use("/api/guestbook", guestbook);
 const usereditor = require("./routes/usereditor");
 app.use("/api/usereditor", usereditor);
 
-const index = require("./routes/index");
-app.use("/", index);
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+});
 
 module.exports = app;

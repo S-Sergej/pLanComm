@@ -5,7 +5,7 @@ const path = require('path')
 /* GET home page */
 router.get('/', (req, res, next) => {
   console.log("YOU ARE IN THE INDEX ROUTE!")
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
+  res.render('index.html');
 });
 
 module.exports = router;
