@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Playerdetails from "./Playerdetails"
 import { Link } from "react-router-dom";
+
 import axios from "axios"
 
 export default class Players extends Component {
   state={
-    players: []
+    players: [],
+   
   }
 
   getPlayers=()=>{
@@ -22,15 +24,19 @@ export default class Players extends Component {
     this.getPlayers();
   }
 
-
-
   render() {
-    console.log(this.state.players)
+    console.log(this.state.visibility)
     return (
       <div>
-        <h1>Playerslist</h1>
-          {this.state.players.map(onePlayer=><div key={onePlayer._id}><Link to="/playerdetail">{onePlayer.username}</Link></div>)}
-
+        <div className="alignUsers">
+           {this.state.players.map(onePlayer=>
+          
+  <div className="playerCard" key={onePlayer._id} >
+    
+  <img style={{width: "50px"}}src={onePlayer.avatarURL} alt={onePlayer.username} />
+  <p style={{color: "black"}}>{onePlayer.username}</p>
+  </div>)}
+         </div>
       </div>
     )
   }

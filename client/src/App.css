@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  
+}
+
+body{
+  background-color: black
 }
 
 .App-logo {
@@ -30,19 +35,37 @@ button {
   margin: 1px;
 }
 
+.nav{
+  
+  min-height: 100px;
+  
+}
+
 .nav a {
-  color: white;
+  color: whitesmoke;
+  text-shadow: 2px 2px darkgreen;
   margin: 5px;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 h1,
 h2 {
   margin-top: 20px;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+p{
+  color: whitesmoke
 }
 
 .nav a:hover {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  
+   ;
 }
 
 .projects-container {
@@ -64,7 +87,13 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0 0 50px 0
+  margin: 0 25px 50px 25px;
+  border: 1px solid grey;
+  border-radius: 12px;
+  padding: 15px 15px;
+  background-color: grey;
+  box-shadow: 10px 10px 50px 20px #0ff;
+  
 }
 
 .guestbook{
@@ -127,8 +156,8 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   text-align: left;
   padding: 0 5px
 }
@@ -167,4 +196,74 @@ footer {
 }
 
 
+
+.playerCard{
+  box-shadow: 10px 10px 50px 20px #0ff;
+  max-width: 100px;
+  min-height: 100px;
+  min-width: 100px;
+  margin: 15px 0;
+  text-align: center;
+  background-color: whitesmoke;
+   
+}
+
+.playerCard img{
+  padding: 15px 0;
+}
+
+button{
+  border:none;
+  min-width: 100px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.alignUsers {
+ display: grid;
+ align-items: flex-start;
+ flex-direction: column;
+}
+
+
+
+.alignUsers button{
+  max-width: 100px;
+}
+
+
+.alignPlayerShow{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+
+.welcomPage{
+  min-width: 500px;
+  min-height: 800px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.FontAwesome:hover{
+  box-shadow: 10px 10px 50px 20px #0ff;
+}
+
+
+
+.formSignup{
+  box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  margin: 25px 50px 0 50px;
+  padding: 25px 0;
+  border-radius: 15px;
+}
 

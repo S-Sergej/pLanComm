@@ -46,12 +46,12 @@ class Login extends Component {
     //const GITHUB_LOCAL_REDIRECT='http://localhost:5555/api/auth/github'
     const GITHUB_REDIRECT='http://plancomm.herokuapp.com/api/auth/github'
     return (
-      <div>
+      <div className="formSignup">
         <h2>Login</h2>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control
+            <Form.Label style={{color: "white"}} htmlFor="username">Username: </Form.Label>
+            <Form.Control 
               type="text"
               name="username"
               id="username"
@@ -60,7 +60,7 @@ class Login extends Component {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
+            <Form.Label style={{color: "white"}} htmlFor="password">Password: </Form.Label>
             <Form.Control
               type="password"
               name="password"

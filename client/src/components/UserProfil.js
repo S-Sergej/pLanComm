@@ -14,7 +14,7 @@ export default class UserProfil extends Component {
     
     return (
       <div className="UserProfil">
-        <img src={this.state.avatarUrl} alt="userbild" />
+        <img style={{backgroundColor: "white", minWidth: "200px"}} src={this.state.avatarUrl} alt="userbild" />
         <h1>{this.state.username}</h1>
         <h1>{this.state.email}</h1>
         <h1>{this.state.usertype}</h1>
