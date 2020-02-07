@@ -3,6 +3,7 @@ const router = express.Router();
 const Guestbook = require("../models/Guestbook")
 const User = require("../models/User")
 
+
 //Damit man auf die Sessions Collection zugreifen kann
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
@@ -39,6 +40,11 @@ router.delete("/delete/:id", (req,res,next)=>{
 
 })
 
-
+router.get("/player/:id", (req, res, next)=>{
+  User.findById(req.params.id)
+  .then(oneUser=>{
+    res.json(oneUser)
+  })
+})
 
 module.exports = router;

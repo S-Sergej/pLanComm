@@ -38,39 +38,41 @@ class Signup extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <h2>Signup</h2>
-        <Form onSubmit={this.handleSubmit}>
+      <div className="formSignup">
+        <Form  onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
+            {/* <Form.Label style={{color: "white"}}htmlFor="username">Username: </Form.Label> */}
             <Form.Control
               type="text"
               name="username"
               id="username"
               value={this.state.username}
               onChange={this.handleChange}
+              placeholder="username"
             />
           </Form.Group>
           
           <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
+            {/* <Form.Label style={{color: "white"}}htmlFor="password">Password: </Form.Label> */}
             <Form.Control
               type="password"
               name="password"
               id="password"
               value={this.state.password}
               onChange={this.handleChange}
+              placeholder="password"
             />
           </Form.Group>
 
           <Form.Group>
-            <Form.Label htmlFor="email">Email: </Form.Label>
+            {/* <Form.Label style={{color: "white"}}htmlFor="email">Email: </Form.Label> */}
             <Form.Control
               type="email"
               name="email"
               id="email"
               value={this.state.email}
               onChange={this.handleChange}
+              placeholder="email"
             />
           </Form.Group>
 
