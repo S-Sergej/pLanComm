@@ -91,13 +91,14 @@ p{
   border: 1px solid grey;
   border-radius: 12px;
   padding: 15px 15px;
-  background-color: grey;
+  background-color: black;
   box-shadow: 10px 10px 50px 20px #0ff;
+  
   
 }
 
 .guestbook{
-  border: 1px solid black;
+  border: 1px solid #0ff;
   margin: 5px 150px 5px 25px;
   display: flex;
   justify-content: left;
@@ -204,12 +205,16 @@ footer {
   min-width: 100px;
   margin: 15px 0;
   text-align: center;
-  background-color: whitesmoke;
+  background-color: #0ff;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  
    
 }
 
 .playerCard img{
   padding: 15px 0;
+  
 }
 
 button{
@@ -226,6 +231,7 @@ button{
  display: grid;
  align-items: flex-start;
  flex-direction: column;
+ 
 }
 
 
@@ -267,3 +273,45 @@ button{
   border-radius: 15px;
 }
 
+
+/* Flipping Cards */
+.card-container{
+  -webkit-perspective: 150px;
+  perspective: 150px;
+  background-color: black;
+  width: 200px;
+  height: 200px
+}
+
+.card-container:hover .card{
+  -webkit-transform: rotateY( 180deg );
+            transform: rotateY( 180deg );
+}
+
+.card{
+  -webkit-transition: -webkit-transform 1s;
+            transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            
+}
+
+.front, .back{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: 200px;
+  height: 200px
+}
+
+.back{
+
+  -webkit-transform: rotateY( 180deg );
+            transform: rotateY( 180deg );
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}

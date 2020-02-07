@@ -47,7 +47,6 @@ class Login extends Component {
     const GITHUB_REDIRECT='http://plancomm.herokuapp.com/api/auth/github'
     return (
       <div className="formSignup">
-        <h2>Login</h2>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Label style={{color: "white"}} htmlFor="username">Username: </Form.Label>

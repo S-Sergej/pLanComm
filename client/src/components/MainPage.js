@@ -44,7 +44,7 @@ showDiv=()=>{
                 </animated.div>
 
             ))}
-            </Transition>
+        </Transition>
             </div>   
 
       </div>
