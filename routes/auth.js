@@ -54,8 +54,10 @@ router.post('/signup', (req, res) => {
               from: process.env.MAILER_GOOGLEMAIL,
               to: mailto,
               subject: 'pLanComm Verification Token', 
-              text: 'Hello,\n\n' + 'Please verify your pLanComm account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/api\/auth\/confirmation\/' + newToken.token + '\n' 
-            }
+              html: `<p><span>Hello, Please verify your pLanComm account by clicking here ==> </span>
+              <span><a href=${'https://' + req.headers.host + '\/api\/auth\/confirmation\/' + newToken.token}>VERIFICATION</a></span>
+              </p>`
+              }
             transporter.sendMail(mailOptions, function (err) {
               if (err) { return res.status(500).json({ message: err.message }); }
               res.status(200).json('A verification email has been sent to ' + newUser.email + '.');
