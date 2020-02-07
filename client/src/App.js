@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Mainpage from "./components/MainPage"
 import UserProfil from "./components/UserProfil"
+import UserEditor from "./components/UserEditor"
 import Game from "./components/Game"
 import EventHistory from "./components/EventHistory"
 import Guestbook from "./components/Guestbook"
@@ -62,6 +63,9 @@ class App extends React.Component {
           }/>
           <Route exact path="/playerdetail" render={
             props => <Playerdetails {...props} setUser={this.setUser} />
+          }/>
+          <Route exact path="/usereditor" render={
+            props => <UserEditor {...props} user={this.state.user} />
           }/>
         </Switch>
         <footer><FontAwesomeIcon icon="copyright" /><i> by JAS</i></footer>

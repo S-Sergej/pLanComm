@@ -120,4 +120,11 @@ app.use("/api/players" , players)
 const guestbook = require("./routes/guestbook");
 app.use("/api/guestbook", guestbook);
 
+const usereditor = require("./routes/usereditor");
+app.use("/api/usereditor", usereditor);
+
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+});
+
 module.exports = app;
