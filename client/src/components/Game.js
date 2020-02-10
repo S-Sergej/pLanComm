@@ -29,7 +29,7 @@ export default class Game extends Component {
     
     return (
       <div>
-        <h1>Game Site</h1>
+        
         <GameForm user={this.state.user} allGames={()=>this.getAllGames()}/>
       <div className="gameArrange">
           {this.state.games.map(oneGame=>

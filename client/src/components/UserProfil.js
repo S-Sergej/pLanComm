@@ -12,7 +12,8 @@ export default class UserProfil extends Component {
       username: this.props.user.username,
       avatarUrl: this.props.user.avatarURL,
       email: this.props.user.email,
-      usertype: this.props.user.userType
+      usertype: this.props.user.userType,
+      createdAt: (new Date(this.props.user.createdAt)).toLocaleDateString()
     }
   }
 
@@ -30,14 +31,24 @@ export default class UserProfil extends Component {
   {this.getUserProfile()}
 
   render() {
-  
+     
     return (
       <div className="UserProfil">
-        <img src={this.state.avatarURL} alt="userbild" />
-        <Link to="/usereditor">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Link>
-        <h1>{this.state.username}</h1>
-        <h1>{this.state.email}</h1>
-        <h1>{this.state.usertype}</h1>
+        <div>
+          <img src={this.state.avatarURL} alt="userbild" />
+          <Link to="/usereditor">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Link>
+        </div>
+        
+        <div className="userData">
+        <h1>Username: {this.state.username}</h1>
+        <h1>Email: {this.state.email}</h1>
+        
+        <h1>Mitglied seit: {this.state.createdAt}</h1>
+        <h1>Usertype: {this.state.usertype}</h1>
+        </div>
+        
+        
+        
       </div>
     )
   }

@@ -6,7 +6,6 @@ export default class GameForm extends Component {
 
   state={
     title: "",
-    genre: "",
     description: "",
     show: false,
     user: this.props.user
@@ -24,11 +23,10 @@ export default class GameForm extends Component {
 
   //Create Game
 
-  createGame=()=>{
-
+  createGame=(event)=>{
+    event.preventDefault()
     axios.post("/api/game/create", {
       title: this.state.title,
-      genre: this.state.genre,
       description: this.state.description,
       user: this.state.user
     })
@@ -37,8 +35,7 @@ export default class GameForm extends Component {
         show: false,
         title: "",
         description: "",
-        genre: ""
-      }, this.props.allGames())
+        }, this.props.allGames())
     })
 
   }
@@ -62,21 +59,17 @@ export default class GameForm extends Component {
   render() {
     
     return (
-      <div className="guestbookForm">
+      <div >
         <button variant="primary" onClick={this.handleShow}>Add New Game <FontAwesomeIcon icon="address-card" /></button>
       <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>New Game</Modal.Title>
         </Modal.Header>
           <Modal.Body >
-          <form onSubmit={this.createGame}>
+          <form onSubmit={this.createGame} className="createGame">
           <div>
           <label htmlFor="title">Titel: </label>
           <input type="text" name="title" value={this.state.title} onChange={this.changeFormEntry}/>
-          </div>
-          <div>
-          <label>Game Picture: </label>
-          <input type="text" name="genre" onChange={this.changeFormEntry} />
           </div>
           <div>
           <label htmlFor="description">Description </label>
