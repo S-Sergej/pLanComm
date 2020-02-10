@@ -59,7 +59,7 @@ export default class Players extends Component {
           
   <div className="playerCard" key={onePlayer._id} onClick={()=>this.showPlayerDetails(onePlayer._id)}>
     
-  <img style={{width: "50px"}}src={onePlayer.avatarURL} alt={onePlayer.username} />
+  <img style={{width: "60px"}}src={onePlayer.avatarURL} alt={onePlayer.username} />
   <p style={{color: "black"}}>{onePlayer.username}</p>
   </div>)}
          </div>

@@ -93,8 +93,13 @@ p{
   padding: 15px 15px;
   background-color: black;
   box-shadow: 10px 10px 50px 20px #0ff;
-  
-  
+  height: 800px;
+}
+
+.guestbookEntrie{
+  height: 1000px;
+  overflow-y: scroll;
+  width: 1000px
 }
 
 .guestbook{
@@ -106,6 +111,7 @@ p{
   flex-direction: row;
   width: 800px;
   height: 150px;
+  
   }
 
 .guestbook div{
@@ -122,10 +128,16 @@ p{
 }
 
 .guestBookUser{
-  border: 1px solid;
+  
   margin: 5px 5px;
-  background-color: grey;
+  
   color: whitesmoke;
+  
+ }
+
+ .guestBookUser img{
+   max-width: 130px;
+   min-width: 120px
  }
 
 .guestbookForm div{
@@ -140,17 +152,44 @@ p{
 
 
 .UserProfil{
-  margin: 50px 0;
+  margin: 150px 350px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  border-radius: 30px;
+  position: absolute;
+  
 }
 
 .UserProfil img{
- width: 100px
+ min-width: 300px;
+ max-width: 400px;
+ 
 }
 
+.UserProfil >div{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0 50px
+}
+
+.UserProfil a:hover{
+  text-decoration: none;
+}
+
+.userData{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
 
 footer {
   position: fixed;
@@ -162,29 +201,6 @@ footer {
   text-align: left;
   padding: 0 5px
 }
-
-
-.gameForm{
-  margin: 50px 200px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 10px 0;
-  box-shadow: 10px 10px 15px grey;
-  height: 300px;
-
-}
-
-.gameForm label{
-  width: 200px;
-  
-}
-
-.gameForm input, textarea, select{
-  width: 350px
-}
-
 
 .gamesCard{
   box-shadow: 5px 5px 15px grey;
@@ -276,31 +292,43 @@ button{
 
 /* Flipping Cards */
 .card-container{
-  -webkit-perspective: 150px;
-  perspective: 150px;
-  background-color: black;
-  width: 200px;
-  height: 200px
+  perspective: 1000px;
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  margin: 50px 50px;
 }
 
 .card-container:hover .card{
-  -webkit-transform: rotateY( 180deg );
-            transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 
 .card{
-  -webkit-transition: -webkit-transform 1s;
-            transition: transform 1s;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  background-color: rgb(29, 16, 39);
+  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  border-radius: 15px; 
+        
 }
 
+
 .front, .back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  width: 200px;
-  height: 200px
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 10px;
+  word-break: break-all
 }
 
 .back{
@@ -309,9 +337,45 @@ button{
             transform: rotateY( 180deg );
 }
 
-.card{
+.gameArrange{
+  margin: 25px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
+
+.front h1{
+  color: whitesmoke;
+  font-size: 190%;
+  text-shadow: 2px 2px black;
+   }
+
+.front img{
+  max-width: 50%;
+  position: absolute;
+  opacity: 0.18;
+}
+
+.back p{
+  color: whitesmoke;
+}
+
+.createGame{
+  display: flex;
+  justify-content: center;
+  
+  flex-direction: column;
+  
+}
+
+
+.createGame label{
+  width: 100px
+}
+
+.createGame input, textarea{
+  width: 350px
+}
+

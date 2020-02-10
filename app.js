@@ -123,8 +123,15 @@ app.use("/api/guestbook", guestbook);
 const usereditor = require("./routes/usereditor");
 app.use("/api/usereditor", usereditor);
 
+
+const game = require("./routes/game");
+app.use("/api/game", game)
+
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
+
+
+
 
 module.exports = app;

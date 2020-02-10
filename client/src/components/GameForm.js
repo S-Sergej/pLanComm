@@ -6,42 +6,47 @@ export default class GameForm extends Component {
 
   state={
     title: "",
-    genre: "",
     description: "",
-    show: false
+    show: false,
+    user: this.props.user
   }
 
   //to get all changed entries
   changeFormEntry=(event)=>{
     event.preventDefault()
-    console.log(event.target)
+    let{name, value} = event.target
     this.setState({
-      [event.target.name] : event.target.value
+      [name] : value
     })
   }
 
-  /* Post Method to create new Game */
+
+  //Create Game
+
   createGame=(event)=>{
     event.preventDefault()
-    console.log(this.state)
-
-    axios.post("/api/game/create", this.state)
+    axios.post("/api/game/create", {
+      title: this.state.title,
+      description: this.state.description,
+      user: this.state.user
+    })
     .then(res=>{
       this.setState({
+        show: false,
         title: "",
         description: "",
-        genre: ""
-      }, ()=>this.props.displayForm())
+        }, this.props.allGames())
     })
-    
-  }
 
+  }
+ 
    //Methodas for the modal
    handleClose = () => {
     this.setState({
       show: false,
       title: "",
-      entrie: ""
+      description: "",
+      genre:""
     })
   };
   handleShow = () => {
@@ -52,22 +57,19 @@ export default class GameForm extends Component {
 
 
   render() {
+    
     return (
-      <div className="guestbookForm">
+      <div >
         <button variant="primary" onClick={this.handleShow}>Add New Game <FontAwesomeIcon icon="address-card" /></button>
       <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>New Game</Modal.Title>
         </Modal.Header>
           <Modal.Body >
-          <form onSubmit={this.createGame}>
+          <form onSubmit={this.createGame} className="createGame">
           <div>
           <label htmlFor="title">Titel: </label>
           <input type="text" name="title" value={this.state.title} onChange={this.changeFormEntry}/>
-          </div>
-          <div>
-          <label>Game Picture: </label>
-          <input type="text" />
           </div>
           <div>
           <label htmlFor="description">Description </label>

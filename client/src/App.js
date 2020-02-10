@@ -50,7 +50,7 @@ class App extends React.Component {
             props => <Login {...props} setUser={this.setUser} />
           }/>
           <Route exact path="/game" render={
-            props => <Game {...props} setUser={this.setUser} />
+            props => <Game {...props} user={this.state.user} />
           }/>
           <Route exact path="/main" render={
             props => <Mainpage {...props} setUser={this.setUser} />

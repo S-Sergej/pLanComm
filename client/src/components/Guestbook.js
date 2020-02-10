@@ -45,18 +45,20 @@ export default class Guestbook extends Component {
       
       <div className="guestBook-Align">
     <GuestbookModal showAll={this.showAllEntries} user={this.state.currentUser} />
-    
+    <div className="guestbookEntrie">
     {this.state.guestbook.map(oneEntrie=>{
       const date= oneEntrie.createdAt
       const d= new Date(date)
     
     return <div key={oneEntrie._id}><div className="guestbook" >
-      <div className="guestBookUser"><img style={{width: "50px"}} src={oneEntrie.user.avatarURL} alt="bild" />
+      <div className="guestBookUser"><img  src={oneEntrie.user.avatarURL} alt="bild" />
       <p>{oneEntrie.user.username}</p></div><div><h1>{oneEntrie.title}</h1>
       <p>{oneEntrie.entrie}</p><p>{d.toLocaleDateString()} {d.toLocaleTimeString()}</p></div></div>{(this.state.currentUser.userType ==="admin") ? <button onClick={()=>this.deleteEntrie(oneEntrie._id)}><FontAwesomeIcon icon="trash-alt" /></button> : null}
       </div>
         }        
       )}
+
+    </div>
       </div>
       
       )

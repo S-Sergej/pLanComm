@@ -26,8 +26,7 @@ class Startpage extends React.Component {
             config={{delay: 3000, duration: 2000}}>
             {props => <div style={props}><p> Welcome to the private Lan Community !</p></div>}
         </Spring>
-             
-          </div>
+        </div>
         )
     }
 
