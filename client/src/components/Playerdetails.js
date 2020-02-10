@@ -16,7 +16,7 @@ export default class Playerdetails extends Component {
     .then(res=>{
       this.setState({
         username: res.data.username,
-        createdAt: (new Date(res.data.createdAt)).toLocaleTimeString(),
+        createdAt: (new Date(res.data.createdAt)).toLocaleDateString(),
         avatarURL: res.data.avatarURL
       })
     })
