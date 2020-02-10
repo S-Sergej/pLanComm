@@ -114,6 +114,11 @@ p{
   
   }
 
+.btn_guestbook{
+  background-color: whitesmoke;
+  border: none;
+}
+
 .guestbook div{
   padding: 15px 25px;
  }
@@ -128,16 +133,16 @@ p{
 }
 
 .guestBookUser{
-  
-  margin: 5px 5px;
-  
+  max-height: 140px;
+  margin: 2px 2px;
   color: whitesmoke;
   
  }
 
  .guestBookUser img{
-   max-width: 130px;
-   min-width: 120px
+   max-height: 100px;
+   background-color: white;
+   
  }
 
 .guestbookForm div{
@@ -177,7 +182,8 @@ p{
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  margin: 0 50px
+  margin: 0 50px;
+  
 }
 
 .UserProfil a:hover{
@@ -379,3 +385,17 @@ button{
   width: 350px
 }
 
+.editAvatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white
+}
+
+.editAvatar Form{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}

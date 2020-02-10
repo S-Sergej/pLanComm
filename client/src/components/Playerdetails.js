@@ -16,7 +16,7 @@ export default class Playerdetails extends Component {
     .then(res=>{
       this.setState({
         username: res.data.username,
-        createdAt: res.data.createdAt,
+        createdAt: (new Date(res.data.createdAt)).toLocaleTimeString(),
         avatarURL: res.data.avatarURL
       })
     })
@@ -28,13 +28,13 @@ export default class Playerdetails extends Component {
 
   render() {
 
-    const datum= new Date(this.state.createdAt)
-    const d= datum.toLocaleDateString()
+    /* const datum= new Date(this.state.createdAt)
+    const d= datum.toLocaleDateString() */
     console.log(this.state)
         return (
       <div>
         <h1 style={{color: "black"}}>Player {this.state.username}</h1>
-        <h1 style={{color: "black"}}>Mitglied seit {d}</h1>
+        <h1 style={{color: "black"}}>Mitglied seit {this.state.createdAt}</h1>
       </div>
     )
   }
