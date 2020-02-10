@@ -276,31 +276,43 @@ button{
 
 /* Flipping Cards */
 .card-container{
-  -webkit-perspective: 150px;
-  perspective: 150px;
-  background-color: black;
-  width: 200px;
-  height: 200px
+  perspective: 1000px;
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  margin: 50px 50px;
 }
 
 .card-container:hover .card{
-  -webkit-transform: rotateY( 180deg );
-            transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 
 .card{
-  -webkit-transition: -webkit-transform 1s;
-            transition: transform 1s;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  background-color: rgb(29, 16, 39);
+  box-shadow: 0 0 3px #FFF, 0 0 8px #FFF, 0 0 11px #FFF, 0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  border-radius: 15px; 
+        
 }
 
+
 .front, .back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  width: 200px;
-  height: 200px
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 10px;
+  word-break: break-all
 }
 
 .back{
@@ -309,9 +321,27 @@ button{
             transform: rotateY( 180deg );
 }
 
-.card{
+.gameArrange{
+  margin: 25px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.front h1{
+  color: whitesmoke;
+  font-size: 190%;
+  text-shadow: 2px 2px black;
+   }
+
+.front img{
+  max-width: 50%;
+  position: absolute;
+  opacity: 0.18;
+}
+
+.back p{
+  color: whitesmoke;
 }

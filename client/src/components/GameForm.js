@@ -8,40 +8,48 @@ export default class GameForm extends Component {
     title: "",
     genre: "",
     description: "",
-    show: false
+    show: false,
+    user: this.props.user
   }
 
   //to get all changed entries
   changeFormEntry=(event)=>{
     event.preventDefault()
-    console.log(event.target)
+    let{name, value} = event.target
     this.setState({
-      [event.target.name] : event.target.value
+      [name] : value
     })
   }
 
-  /* Post Method to create new Game */
-  createGame=(event)=>{
-    event.preventDefault()
-    console.log(this.state)
 
-    axios.post("/api/game/create", this.state)
+  //Create Game
+
+  createGame=()=>{
+
+    axios.post("/api/game/create", {
+      title: this.state.title,
+      genre: this.state.genre,
+      description: this.state.description,
+      user: this.state.user
+    })
     .then(res=>{
       this.setState({
+        show: false,
         title: "",
         description: "",
         genre: ""
-      }, ()=>this.props.displayForm())
+      }, this.props.allGames())
     })
-    
-  }
 
+  }
+ 
    //Methodas for the modal
    handleClose = () => {
     this.setState({
       show: false,
       title: "",
-      entrie: ""
+      description: "",
+      genre:""
     })
   };
   handleShow = () => {
@@ -52,6 +60,7 @@ export default class GameForm extends Component {
 
 
   render() {
+    
     return (
       <div className="guestbookForm">
         <button variant="primary" onClick={this.handleShow}>Add New Game <FontAwesomeIcon icon="address-card" /></button>
@@ -67,7 +76,7 @@ export default class GameForm extends Component {
           </div>
           <div>
           <label>Game Picture: </label>
-          <input type="text" />
+          <input type="text" name="genre" onChange={this.changeFormEntry} />
           </div>
           <div>
           <label htmlFor="description">Description </label>
