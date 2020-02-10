@@ -54,7 +54,7 @@ export default class GuestbookModal extends Component {
     
     return (
       <div>
-        <button variant="primary" onClick={this.handleShow}>Add Guestbook Entry <FontAwesomeIcon icon="address-card" /></button>
+        <button className="btn_guestbook" onClick={this.handleShow}>Add Guestbook Entry <FontAwesomeIcon icon="address-card" /></button>
       <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>New Guestbook Entry</Modal.Title>

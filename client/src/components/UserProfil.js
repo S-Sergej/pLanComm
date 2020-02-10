@@ -35,14 +35,13 @@ export default class UserProfil extends Component {
     return (
       <div className="UserProfil">
         <div>
-          <img src={this.state.avatarURL} alt="userbild" />
+          <img style={{backgroundColor: "white"}}src={this.state.avatarURL} alt="userbild" />
           <Link to="/usereditor">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Link>
         </div>
         
         <div className="userData">
         <h1>Username: {this.state.username}</h1>
         <h1>Email: {this.state.email}</h1>
-        
         <h1>Mitglied seit: {this.state.createdAt}</h1>
         <h1>Usertype: {this.state.usertype}</h1>
         </div>

@@ -62,11 +62,11 @@ import axios from "axios";
   render() {
     console.log("This is a test", this.state);
     return (
-      <div>
+      <div className="editAvatar">
         <h2>Change your avatar</h2>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label htmlFor="avatarURL">Current avatar: </Form.Label>
+            <Form.Label htmlFor="avatarURL" >Current avatar: </Form.Label>
             <Form.Control
               type="file"
               name="image"
@@ -76,7 +76,7 @@ import axios from "axios";
           </Form.Group>
 
           {/*{this.state.error && (<Alert variant="danger">{this.state.error}</Alert>)} */}
-          <Button type="submit">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Button>
+          <Button style={{backgroundColor: "white", color: "black"}}type="submit">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Button>
         </Form>
       </div>
     );
