@@ -109,7 +109,7 @@ p{
   justify-content: left;
   align-items: flex-start;
   flex-direction: row;
-  width: 800px;
+  width: 850px;
   height: 250px;
   box-shadow: 2px 2px  grey;
   
@@ -125,6 +125,7 @@ p{
 
 
 .btn_guestbook{
+  margin: 15px 0; 
   background-color: whitesmoke;
   border: none;
 }

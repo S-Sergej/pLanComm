@@ -11,9 +11,7 @@ export default class Guestbook extends Component {
     this.state={
       guestbook: [],
       currentUser: this.props.user,
-      showAnswer: false,
-      
-      
+
      }
   }
 
@@ -41,55 +39,53 @@ export default class Guestbook extends Component {
 
     }
 
-    //show all Answers
-
-    /* showAnswer(guestBookId){
-      console.log(guestBookId)
-      axios.get(`/api/guestbook/answer/${guestBookId}`)
-      .then(res=>{
-        this.setState({
-          answersforOneEntrie: res.data,
-          showAnswer: true
-        })
-      })
-    }; */
-
-
+  
   render() {
-    /* console.log(this.state.answersforOneEntrie) */
+    console.log(this.state.showAnswer)
      return (
        
       <div className="guestBook-Align">
-    <GuestbookModal showAll={this.showAllEntries} user={this.state.currentUser} />
-    <div className="guestbookEntrie">
-    {this.state.guestbook.map(oneEntrie=>{
-      const date= oneEntrie.createdAt
-      const d= new Date(date)
+        <GuestbookModal showAll={this.showAllEntries} user={this.state.currentUser} />
+         <div className="guestbookEntrie">
+          {this.state.guestbook.map(oneEntrie=>{
+            const date= oneEntrie.createdAt
+            const d= new Date(date)
     
-    return <div key={oneEntrie._id}><div className="guestbook" >
-      <div className="guestBookUser">
-        <img  src={oneEntrie.user.avatarURL} alt="bild" />
-        <p>{oneEntrie.user.username}</p>
-        <p>{d.toLocaleDateString()} {d.toLocaleTimeString()} </p>
+    return <div key={oneEntrie._id}>
+      <div className="guestbook" >
+        <div className="guestBookUser">
+          {(oneEntrie.user !== null) ? 
+          <div>
+            <img  src={oneEntrie.user.avatarURL} alt="bild" />
+            <p>{oneEntrie.user.username}</p>
+            <p>{d.toLocaleDateString()} {d.toLocaleTimeString()} </p>
+          </div>
+
+            : 
+          <div>
+            <img  src="https://cdn.onlinewebfonts.com/svg/img_74993.png" alt="bild" />
+            <p>anonymous</p>
+          </div> }
+        
+        </div>
+          <div >
+            <h1>{oneEntrie.title}</h1>
+            <p className="oneGuestbookEntrie">{oneEntrie.entrie}</p>
+          <div className="arrangeDateAndAnswer">
+      
+              {(oneEntrie.answer.length >0) && <p><FontAwesomeIcon icon="comments" /> {oneEntrie.answer.length}</p>}
+      
+          </div>
+        </div>
       </div>
-      <div ><h1>{oneEntrie.title}</h1>
-      <p className="oneGuestbookEntrie">{oneEntrie.entrie}</p>
+ 
       
-      <div className="arrangeDateAndAnswer">
-      
-      {(oneEntrie.answer.length >0) && <p>Replies {oneEntrie.answer.length}</p>}
-      </div>
-      </div>
-      </div>
-      
-      
-     
-        {/* Hier ist der Code, damit die Admins Einträge löschen können */}
-      {(this.state.currentUser.userType ==="admin") ? <button onClick={()=>this.deleteEntrie(oneEntrie._id)}><FontAwesomeIcon icon="trash-alt" /></button> : null}
-      {/* Hier ist der Code für die Antwort Funktion */}
-      <Answer entryId={oneEntrie._id} user={this.state.currentUser}/>
-      
-      <Answerdetail  guestbookid={oneEntrie._id}/>
+             {/* Hier ist der Code, damit die Admins Einträge löschen können */}
+             {(this.state.currentUser.userType ==="admin") ? <button onClick={()=>this.deleteEntrie(oneEntrie._id)}><FontAwesomeIcon icon="trash-alt" /></button> : null}
+             {/* Hier ist der Code für die Antwort Funktion */}
+             <Answer showAllEntries={this.showAllEntries} entryId={oneEntrie._id} user={this.state.currentUser}/>
+
+             <Answerdetail  guestbookid={oneEntrie._id}/>
 
       </div>
         }        

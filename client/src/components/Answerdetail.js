@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import {Transition, animated} from 'react-spring/renderprops'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class Answerdetail extends Component {
   constructor(props){
@@ -42,8 +43,8 @@ export default class Answerdetail extends Component {
       
    {/* Ob der Show oder Hide Button angezeigt werden soll */}
    { (!this.state.showAnswer) ? 
-   <button guestbookid={this.props.guestbookid} onClick={()=>this.showAnswer(this.props.guestbookid)}>  ShowAnswer</button> 
-   : <button onClick={this.hideAnswer}>hideAnswer</button>}
+   <button guestbookid={this.props.guestbookid} onClick={()=>this.showAnswer(this.props.guestbookid)}><FontAwesomeIcon icon="comments" /> Show</button> 
+   : <button onClick={this.hideAnswer}><FontAwesomeIcon icon="times-circle" /> Close </button>}
       
        
       {/* Hier werden dann die Antworten gerendert */}
@@ -65,10 +66,19 @@ export default class Answerdetail extends Component {
                 <animated.div 
                 style={props}>
                   <div className="answer">
-           <div>
-              <img src={oneAnswer.user.avatarURL} alt={oneAnswer.user.username} />
-              <p>{oneAnswer.user.username}</p>
-           </div>
+           
+              {(oneAnswer.user !== null) ? 
+                  <div>
+                      <img src={oneAnswer.user.avatarURL} alt={oneAnswer.user.username} />
+                      <p>{oneAnswer.user.username}</p>
+                  </div>
+
+                    : 
+                  <div>
+                    <img style={{backgroundColor: "white", width: "80px"}} src="https://cdn.onlinewebfonts.com/svg/img_74993.png" alt="bild" />                    <p>anonymous</p>
+                  </div> 
+              }
+           
            <div>
               <h1>{oneAnswer.title}</h1>
               <p>{oneAnswer.description}</p>

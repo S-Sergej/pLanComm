@@ -36,7 +36,7 @@ export default class Antwort extends Component {
         show: false,
         title: "",
         description: "",
-        })
+        }, this.props.showAllEntries)
     })
 
   }
@@ -62,10 +62,10 @@ export default class Antwort extends Component {
     
     return (
       <div >
-        <button variant="primary" onClick={this.handleShow}>Reply <FontAwesomeIcon icon="address-card" /></button>
+        <button variant="primary" onClick={this.handleShow}><FontAwesomeIcon icon="pen" /> Reply  </button>
       <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Antworten</Modal.Title>
+          <Modal.Title>Reply</Modal.Title>
         </Modal.Header>
           <Modal.Body >
           <form /* onSubmit={this.createAnswer} */ className="createGame">
@@ -74,7 +74,7 @@ export default class Antwort extends Component {
           <input type="text" name="title" value={this.state.title} onChange={this.changeFormEntry}/>
           </div>
           <div>
-          <label htmlFor="description">Replay </label>
+          <label htmlFor="description">Reply </label>
           <textarea name="description" onChange={this.changeFormEntry} defaultValue={this.state.description}></textarea>
           </div>
                  
