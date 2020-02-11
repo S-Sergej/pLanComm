@@ -2,19 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-  title: String,
+  eventname: String,
   description: String,
-  date: Date,
+  eventdate: Date,
   games: [
     {
       type: Schema.Types.ObjectId,
       ref: "Game"
     }
   ],
-  owner: {
+  ownerid: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },
+  ownername: String,
   subscriber: [
     {
       type: Schema.Types.ObjectId,

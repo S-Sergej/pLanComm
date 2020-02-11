@@ -123,9 +123,11 @@ app.use("/api/guestbook", guestbook);
 const usereditor = require("./routes/usereditor");
 app.use("/api/usereditor", usereditor);
 
-
 const game = require("./routes/game");
-app.use("/api/game", game)
+app.use("/api/game", game);
+
+const event = require("./routes/event");
+app.use("/api/event", event);
 
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "/client/build/index.html"));

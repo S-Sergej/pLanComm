@@ -5,13 +5,15 @@ import Navbar from "./components/Navbar";
 import Startpage from "./components/Startpage";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import Mainpage from "./components/MainPage"
-import UserProfil from "./components/UserProfil"
-import UserEditor from "./components/UserEditor"
-import Game from "./components/Game"
-import EventHistory from "./components/EventHistory"
-import Guestbook from "./components/Guestbook"
-import Playerdetails from "./components/Playerdetails"
+import Mainpage from "./components/MainPage";
+import UserProfil from "./components/UserProfil";
+import UserEditor from "./components/UserEditor";
+import Game from "./components/Game";
+import EventHistory from "./components/EventHistory";
+import Guestbook from "./components/Guestbook";
+import Playerdetails from "./components/Playerdetails";
+import Event from "./components/Event";
+import EventDetails from "./components/EventDetails";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -67,6 +69,22 @@ class App extends React.Component {
           <Route exact path="/usereditor" render={
             props => <UserEditor {...props} user={this.state.user} />
           }/>
+          <Route exact path="/event" render={
+            props => <Event {...props} user={this.state.user} />
+          }/>
+          <Route exact path="/event/:eventId" render={
+            props => <EventDetails {...props} user={this.state.user} />
+          } />
+          <Route exact path="/event/:eventId/subscribe" render={
+            props => <Mainpage {...props} user={this.state.user} />
+          } />
+          <Route exact path="/event/:eventId/unsubscribe" render={
+            props => <Mainpage {...props} user={this.state.user} />
+          } />
+          <Route exact path="/event/:eventId/delete" render={
+            props => <Mainpage {...props} user={this.state.user} />
+          } />
+          }
         </Switch>
         <footer><FontAwesomeIcon icon="copyright" /><i> by JAS</i></footer>
       </div>
