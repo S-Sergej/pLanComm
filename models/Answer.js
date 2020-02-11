@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const answerSchema = new Schema({
   title: String,
   description: String,
-  project: {
+  guestbook: {
     type: Schema.Types.ObjectId,
     ref: "Guestbook"
   },
@@ -12,6 +12,8 @@ const answerSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   }
+},{
+  timestamps: true
 });
 
 const Answer = mongoose.model("Answer", answerSchema);
