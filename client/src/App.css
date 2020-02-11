@@ -109,12 +109,23 @@ p{
   justify-content: left;
   align-items: flex-start;
   flex-direction: row;
-  width: 800px;
-  height: 150px;
+  width: 850px;
+  height: 250px;
+  box-shadow: 2px 2px  grey;
   
   }
 
+.oneGuestbookEntrie{
+  max-height: 110px;
+  max-width: 550px;
+  min-width: 550px;
+  overflow-y: scroll;
+}
+
+
+
 .btn_guestbook{
+  margin: 15px 0; 
   background-color: whitesmoke;
   border: none;
 }
@@ -400,6 +411,100 @@ button{
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 .eventhistory{
   background-image: url(https://unsplash.com/photos/tloFnD-7EpI);
 }
+=======
+
+.EventData{
+  margin: 150px 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  border-radius: 30px;
+  position: absolute;
+  
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+
+
+.answerdetail{
+  
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 5px 150px 5px 25px;
+  
+}
+
+.answer{
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  margin: 10px 50px;
+  
+}
+
+.answer > div{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.answer div:nth-child(2){
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  
+}
+
+.answer img{
+  max-width: 100px;
+  margin: 0 30px 0 0
+}
+
+.answer h1{
+  font-size: 20px;
+}
+
+.arrangeDateAndAnswer{
+  display: flex;
+  justify-content: left;
+  
+}
+
+.arrangeDateAndAnswer p{
+  padding: 0 50px 0 0;
+  
+}
+
+>>>>>>> master

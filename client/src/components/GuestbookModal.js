@@ -54,7 +54,7 @@ export default class GuestbookModal extends Component {
     
     return (
       <div>
-        <button className="btn_guestbook" onClick={this.handleShow}>Add Guestbook Entry <FontAwesomeIcon icon="address-card" /></button>
+        <button className="btn_guestbook" onClick={this.handleShow}>Add Guestbook Entry <FontAwesomeIcon icon="marker" /></button>
       <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>New Guestbook Entry</Modal.Title>
@@ -62,8 +62,8 @@ export default class GuestbookModal extends Component {
           <Modal.Body >
             <form className="guestbookForm">
               <div>
-              <label htmlFor="title">Titel </label><input type="text" name="title" value={this.state.title} onChange={this.addEntrie} />
-              <label htmlFor="entrie">Eintrag </label>
+              <label htmlFor="title">Title </label><input type="text" name="title" value={this.state.title} onChange={this.addEntrie} />
+              <label htmlFor="entrie">Entry </label>
               </div>
               <div>
               <textarea cols="100" rows="5" name="entrie" value={this.state.entrie} onChange={this.addEntrie}></textarea>
