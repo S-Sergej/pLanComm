@@ -399,3 +399,7 @@ button{
   align-items: flex-start;
   flex-direction: column;
 }
+
+.eventhistory{
+  background-image: url(https://unsplash.com/photos/tloFnD-7EpI);
+}

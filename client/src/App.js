@@ -17,6 +17,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import TeamGenerator from "./components/TeamGenerator";
 
 library.add(fab, fas)
 
@@ -66,6 +67,9 @@ class App extends React.Component {
           }/>
           <Route exact path="/usereditor" render={
             props => <UserEditor {...props} user={this.state.user} />
+          }/>
+          <Route exact path ="/teamgenerator" render={
+            props => <TeamGenerator {...props} setUser={this.setUser} />
           }/>
         </Switch>
         <footer><FontAwesomeIcon icon="copyright" /><i> by JAS</i></footer>

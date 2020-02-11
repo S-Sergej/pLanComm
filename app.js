@@ -131,6 +131,8 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
 
+/*const teamgenerator = require("./routes/teamgenerator");
+app.use("/api/teamgenerator", teamgenerator)*/
 
 
 
