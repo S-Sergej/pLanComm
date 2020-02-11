@@ -411,11 +411,9 @@ button{
   flex-direction: column;
 }
 
-<<<<<<< HEAD
 .eventhistory{
   background-image: url(https://unsplash.com/photos/tloFnD-7EpI);
 }
-=======
 
 .EventData{
   margin: 150px 350px;
@@ -507,4 +505,3 @@ button{
   
 }
 
->>>>>>> master

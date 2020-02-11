@@ -70,11 +70,9 @@ class App extends React.Component {
           <Route exact path="/usereditor" render={
             props => <UserEditor {...props} user={this.state.user} />
           }/>
-<<<<<<< HEAD
           <Route exact path ="/teamgenerator" render={
             props => <TeamGenerator {...props} setUser={this.setUser} />
           }/>
-=======
           <Route exact path="/event" render={
             props => <Event {...props} user={this.state.user} />
           }/>
@@ -91,7 +89,6 @@ class App extends React.Component {
             props => <Mainpage {...props} user={this.state.user} />
           } />
           }
->>>>>>> master
         </Switch>
         <footer><FontAwesomeIcon icon="copyright" /><i> by JAS</i></footer>
       </div>
