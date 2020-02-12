@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt&display=swap');
+
+
 .App {
   text-align: center;
   
@@ -412,7 +415,24 @@ button{
 }
 
 .eventhistory{
-  background-image: url(https://unsplash.com/photos/tloFnD-7EpI);
+  background-image: url("https://images.unsplash.com/photo-1515041219749-89347f83291a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80");
+  height: 600px;
+  width: auto;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rock Salt', cursive;
+  }
+
+.eventhistory h3{
+  font-size: 38px;
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 300px;
+  left: 480px;
+  color: whitesmoke;
+  text-shadow: 2px 2px black;
 }
 
 .EventData{

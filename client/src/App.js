@@ -70,9 +70,6 @@ class App extends React.Component {
           <Route exact path="/usereditor" render={
             props => <UserEditor {...props} user={this.state.user} />
           }/>
-          <Route exact path ="/teamgenerator" render={
-            props => <TeamGenerator {...props} setUser={this.setUser} />
-          }/>
           <Route exact path="/event" render={
             props => <Event {...props} user={this.state.user} />
           }/>

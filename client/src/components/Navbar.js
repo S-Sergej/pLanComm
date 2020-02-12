@@ -20,7 +20,6 @@ const Navbar = props => {
           <Link to="/userprofil">UserProfile <FontAwesomeIcon className="FontAwesome"icon="user" /></Link>
           <Link to="/game">Game <FontAwesomeIcon  className="FontAwesome"icon="gamepad" /></Link>
           <Link to="/eventhistory">Event History <FontAwesomeIcon  className="FontAwesome"icon="list-alt" /></Link>
-          <Link to="/teamgenerator">Teamgenerator <FontAwesomeIcon  className="FontAwesome"icon="campground" /></Link>
           <Link to="/guestbook">Guestbook <FontAwesomeIcon className="FontAwesome"icon="address-book" /></Link>
           <Link to="/" onClick={handleLogout}>
             Logout <FontAwesomeIcon className="FontAwesome"icon="sign-out-alt" />

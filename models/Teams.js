@@ -3,10 +3,9 @@ const Schema = mongoose.Schema;
 
 const teamSchema = new Schema({
   title: String,
-  description: String,
   users: [{
     type: Schema.Types.ObjectId,
-    ref: "Project"
+    ref: "User"
   }],
   event: {
     type: Schema.Types.ObjectId,

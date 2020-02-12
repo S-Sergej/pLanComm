@@ -16,7 +16,26 @@ export default class Event extends Component {
     ownername: this.props.username,
     event: "",
     subscriber: [],
+    teams: [],
+    teamcount:0
   }
+
+  // change handler for team creator
+ handleTeamCountChange = (event) => {
+this.setState({
+  teamcount: event.target.value,
+})}
+
+teamGeneratorSubmit = (event) => {
+  event.preventDefault()
+  axios.post(`/api/teamgenerator/${this.props.match.params.eventId}/${this.state.teamcount}`, this.state.subscriber)
+  .then(
+    response => this.setState({
+      teams: response.data.teams
+    }, this.extraMethodGetEvent())
+  )
+}
+
 
   changeFormEntry=(event)=>{
     event.preventDefault()
@@ -27,11 +46,16 @@ export default class Event extends Component {
   }
 
   componentDidMount(){
+    this.extraMethodGetEvent()
+  }
+  extraMethodGetEvent(){
     axios.get(`/api/event/${this.props.match.params.eventId}`)
     .then(res => {
       this.setState({
         event: res.data,
-        subscriber: res.data.subscriber
+        subscriber: res.data.subscriber,
+        owner: res.data.ownerid,
+        teams: res.data.teams
       })
     })
   }
@@ -74,7 +98,7 @@ export default class Event extends Component {
   }
 
   render() {
-    console.log("MEIN EVEEEEENT>>>>>>>>",this.state.event)
+    console.log("MEIN EVEEEEENT>>>>>>>>",this.state.teams)
     return (
       <div> 
         <h1>{this.state.event.eventname}</h1>
@@ -83,10 +107,25 @@ export default class Event extends Component {
         <p>Description:</p>
         <h4 style={{color: "green"}}>{this.state.event.description}</h4>
         <p>created by: {this.state.event.ownername}</p>
-        <p>subscribed for event: {this.state.subscriber.map(oneSubscriber=><div>{oneSubscriber.username}</div>)}</p>
+        <div>subscribed for event: {this.state.subscriber.map(oneSubscriber=><p key={oneSubscriber._id}>{oneSubscriber.username}</p>)}</div>
+
         <button style={{color: "blue"}} onClick={this.subscribe}>subscribe</button>
         <button style={{color: "red"}} onClick={this.unsubscribe}>unsubscribe</button>
         <button style={{color: "black"}} onClick={this.delete}>delete Event</button>
+        <div>Teams for events: </div>
+        <div>
+          {this.state.teams.map(
+            (oneTeam, index) => 
+            (<div style={{color: "green"}} key = {Math.random()*(index+1)}> Team{index+1}: 
+              {oneTeam.map((eachUser, index) =>
+                 <span  key = {Math.random()*(index+1)}> {eachUser} </span>
+                 )}
+            </div>))}
+        </div>
+        <form onSubmit={this.teamGeneratorSubmit}>
+        <button style={{color: "black"}} type="submit">Create Teams</button>
+        <input type="number" name="teamcount" onChange={this.handleTeamCountChange} value ={this.state.teamcount} min="2" max="6"/>
+        </form>
       </div>
     )
   }

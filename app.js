@@ -129,12 +129,14 @@ app.use("/api/game", game);
 const event = require("./routes/event");
 app.use("/api/event", event);
 
+const teamgenerator = require("./routes/teamgenerator");
+app.use("/api/teamgenerator", teamgenerator)
+
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
 
-/*const teamgenerator = require("./routes/teamgenerator");
-app.use("/api/teamgenerator", teamgenerator)*/
+
 
 
 
