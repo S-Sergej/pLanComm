@@ -92,6 +92,49 @@ router.post('/:eventId/unsubscribe', (req, res, next) => {
   })
 })
 
+router.get('/game/:gameId', (req, res, next) => {
+  Game.findById(req.params.gameId)
+    .then(game => {
+      res.json(game)
+    })
+})
+
+router.post('/:eventId/addgame', (req, res, next) => {
+  const newGame = req.body.games
+  console.log("BACKEND",req.body.games)
+  console.log("PARAMS>>>",req.params.eventId)
+  Event.findById(req.params.eventId, (err, theEvent) => {
+    if (theEvent.games.includes(newGame)){
+      res.json(theEvent)
+    } else {
+    theEvent
+    .update({$push: {games: newGame}})
+    .then(theEvent => {
+      res.json(theEvent)
+      })
+    .catch(error => {
+      next(error)
+      })
+    }
+  })
+})
+
+//Delete added Game on Event
+router.post('/:eventId/deletegame', (req, res, next) => {
+  const currentGameId = req.body.games
+  Event.findById(req.params.eventId, (err, theEvent) => {
+    const updatedGames = theEvent.games.filter(
+      games => games._id != currentGameId
+    )
+    theEvent
+    .update({games: updatedGames})
+    .then(theEvent => {
+      res.json(theEvent)
+    })
+    .catch(error => {next(error)})
+  })
+})
+
 router.post('/:eventId/delete', (req, res, next) => {
   const current_user_id = req.body.user._id
   Event.findById(req.params.eventId, (err, theEvent) => {

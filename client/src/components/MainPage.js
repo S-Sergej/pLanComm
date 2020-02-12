@@ -3,7 +3,7 @@ import Event from './Event'
 import Players from './Players'
 import { Transition, animated } from 'react-spring/renderprops'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Axios from 'axios'
+import axios from 'axios'
 
 export default class MainPage extends Component {
   state = {
@@ -20,7 +20,7 @@ export default class MainPage extends Component {
   }
 
   getAllEvents = () => {
-    Axios.get('/api/event/').then(res => {
+    axios.get('/api/event/').then(res => {
       console.log(res);
       this.setState({
         events: res.data
