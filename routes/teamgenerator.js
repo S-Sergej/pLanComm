@@ -12,6 +12,9 @@ router.post('/:eventId/:teamscount', (req, res, next) => {
     .then(event => {
       const namesArray = event.subscriber.map(user => {
         return user.username})
+      if (namesArray.length < 2) {
+        return res.status(409).json({message: 'not enough subscribers for Team generator!'});
+      };  
       const random = generateRandomTeams(namesArray, req.params.teamscount)
       console.log("Event response:",event.subscriber[0].username)
       Event.findByIdAndUpdate(req.params.eventId, {teams: random})
@@ -24,7 +27,9 @@ router.post('/:eventId/:teamscount', (req, res, next) => {
 
 function generateRandomTeams(subscribersArray, teamscount) {
   //console.log("Show me te subscribers here", subscribersArray, teamscount)
-  if (subscribersArray.length < 2) return subscribersArray;
+  //if (subscribersArray.length < 2) {
+  //  return res.status(400).json('not enough subscribers for Team generator!')
+  //};  
   const teams = [[]];
   const membersInTeam = Math.ceil(subscribersArray.length / teamscount);
   console.log(membersInTeam)
