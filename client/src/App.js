@@ -85,6 +85,12 @@ class App extends React.Component {
           <Route exact path="/event/:eventId/delete" render={
             props => <Mainpage {...props} user={this.state.user} />
           } />
+          <Route exact path="/event/:eventId/addgame" render={
+            props => <EventDetails {...props} user={this.state.user} />
+          } />
+          <Route exact path="/event/:eventId/deletegame" render={
+            props => <EventDetails {...props} user={this.state.user} />
+          } />
           }
         </Switch>
         <footer><FontAwesomeIcon icon="copyright" /><i> by JAS</i></footer>
