@@ -21,7 +21,8 @@ const eventSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "User"
     }
-  ]
+  ],
+  teams: []
 });
 
 const Event = mongoose.model("Event", eventSchema);

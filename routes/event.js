@@ -12,11 +12,14 @@ router.get('/', (req, res, next) => {
     .populate('subscriber')
     .populate('games')
     .then(allEvents => {
+      console.log('ALL EVENT GET >>>>>>>>>>>>', res)
       res.json(allEvents)
     })
+    .catch(err => console.log('ALL EVENTS FROM FRONT >>>>>>>>', err))
 })
 
 router.post('/', (req, res, next) => {
+  console.log('NEW EVENT PPOST >>>>>>>>>>>>', req)
   const eventname = req.body.eventname
   const eventdate = req.body.eventdate
   const description = req.body.description
@@ -24,6 +27,7 @@ router.post('/', (req, res, next) => {
   const ownerid = req.user._id
   const ownername = req.user.username
   const subscriber = [ownerid]
+  const teams = []
 
   Event.create({
     eventname,
@@ -32,7 +36,8 @@ router.post('/', (req, res, next) => {
     description,
     ownerid,
     ownername,
-    subscriber
+    subscriber,
+    teams,
   })
     .then(event => res.json(event))
     .catch(err => console.log(err))
@@ -89,6 +94,49 @@ router.post('/:eventId/unsubscribe', (req, res, next) => {
       .catch(error => {
         next(error)
       })
+  })
+})
+
+router.get('/game/:gameId', (req, res, next) => {
+  Game.findById(req.params.gameId)
+    .then(game => {
+      res.json(game)
+    })
+})
+
+router.post('/:eventId/addgame', (req, res, next) => {
+  const newGame = req.body.games
+  console.log("BACKEND",req.body.games)
+  console.log("PARAMS>>>",req.params.eventId)
+  Event.findById(req.params.eventId, (err, theEvent) => {
+    if (theEvent.games.includes(newGame)){
+      res.json(theEvent)
+    } else {
+    theEvent
+    .update({$push: {games: newGame}})
+    .then(theEvent => {
+      res.json(theEvent)
+      })
+    .catch(error => {
+      next(error)
+      })
+    }
+  })
+})
+
+//Delete added Game on Event
+router.post('/:eventId/deletegame', (req, res, next) => {
+  const currentGameId = req.body.games
+  Event.findById(req.params.eventId, (err, theEvent) => {
+    const updatedGames = theEvent.games.filter(
+      games => games._id != currentGameId
+    )
+    theEvent
+    .update({games: updatedGames})
+    .then(theEvent => {
+      res.json(theEvent)
+    })
+    .catch(error => {next(error)})
   })
 })
 

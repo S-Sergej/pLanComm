@@ -9,12 +9,11 @@ const Schema = mongoose.Schema;
 
 router.get("/allGames" ,(req,res,next)=>{
   Game.find({})
-  .populate("user")
   .then(allGames=>{
     res.json(allGames)
   })
 })
- 
+
 
 router.post('/create', (req, res, next) => {
   const{title, genre, description, user} = req.body
