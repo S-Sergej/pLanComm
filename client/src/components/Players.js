@@ -59,14 +59,17 @@ export default class Players extends Component {
   render() {
         return (
       <div>
+
+        {/* hier werden alle registered User aufgelistet */}
         <div className="alignUsers">
+          
            {this.state.players.map(onePlayer=>
           
-  <div className="playerCard" key={onePlayer._id} onClick={()=>this.showPlayerDetails(onePlayer._id)}>
+           <div className="playerCard" key={onePlayer._id} onClick={()=>this.showPlayerDetails(onePlayer._id)}>
     
-  <img src={onePlayer.avatarURL} alt={onePlayer.username} />
-  <p >{onePlayer.username}</p>
-  </div>)}
+           <img src={onePlayer.avatarURL} alt={onePlayer.username} />
+           <p >{onePlayer.username}</p>
+        </div>)}
          </div>
 
             

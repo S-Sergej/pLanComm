@@ -1,5 +1,8 @@
 import React from "react";
 import {Spring} from 'react-spring/renderprops'
+import Modal from 'react-bootstrap/Modal';
+
+
 
 
 class Startpage extends React.Component {
@@ -26,6 +29,7 @@ class Startpage extends React.Component {
         })
     }
 
+
     componentDidMount() {
         if (this.video) {
           this.video.addEventListener("loadeddata", () => {
@@ -41,6 +45,22 @@ class Startpage extends React.Component {
         }
       }
 
+    //Methodas for the modal
+   handleClose = () => {
+    this.setState({
+      show: false,
+      title: "",
+      description: "",
+      
+    })
+  };
+  handleShow = () => {
+    this.setState({
+      show: true
+    })
+  };
+
+
 
     render() {
         return (
@@ -53,8 +73,11 @@ class Startpage extends React.Component {
             to={{ opacity: 1 }}
             config={{duration: 5000}}>
                 {props => <div style={props}>
-                    <h1 style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
-                    color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
+                   
+                        <h1  onClick={this.handleShow} style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
+                            color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
+                  
+
             </div>}
 
         </Spring>
@@ -63,9 +86,45 @@ class Startpage extends React.Component {
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}
             config={{delay: 3000, duration: 2000}}>
-            {props => <div style={props}><p> Welcome to the private Lan Community !</p></div>}
+            {props => <div style={props}><p style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff"}}> private Lan Community </p></div>}
         </Spring>
+
     </div>
+
+
+        
+
+        {/*/PJAS Logo is rendered here */}
+
+        <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            config={{duration: 5000}}>
+            {props => <div style={props}><img style={{height: "90px", marginLeft: "925px", marginTop: "-50px"}} src="Logo_Transparent.png" alt="no pic"/></div>}
+        </Spring>
+
+        {/*This is the about when you cloci on the logo*/}
+
+        <Modal style={{marginTop: "100px"}} show={this.state.show} onHide={this.handleClose} animation={true} backdrop= {false}>
+        <Modal.Header closeButton>
+          <Modal.Title>About pLanComm</Modal.Title>
+        </Modal.Header>
+          <Modal.Body className="aboutModalBody">
+              <div className="aboutModalBodyDiv">
+                  <p><p style={{fontSize : "20px", fontStyle : "italic"}}>With this awesome app you can:</p> <br>
+                  </br>-Plan and create Events for upcoming LANs Partys<br>
+                  </br>-Meet up and communicate with friends (or strangers) online<br>
+                  </br>-Subscribe and get notifications for desired events <br>
+                  </br>-Simply generate teams for gaming sessions <br>
+                  </br>-Make individual game suggestions for Events <br>
+                  </br>
+                  </p>
+            </div>
+            <img style={{height: "50px", marginLeft: "350px"}} src="Logo_Transparent.ico" alt="no logo"/>
+         </Modal.Body>
+       </Modal>
+      
+      
     </div>
         )
     }

@@ -45,21 +45,23 @@ class Login extends Component {
       <div className="formSignup">
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label style={{color: "white"}} htmlFor="username">Username: </Form.Label>
+            <Form.Label style={{color: "white"}} htmlFor="username"></Form.Label>
             <Form.Control 
               type="text"
               name="username"
               id="username"
+              placeholder="username"
               value={this.state.username}
               onChange={this.handleChange}
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label style={{color: "white"}} htmlFor="password">Password: </Form.Label>
+            <Form.Label style={{color: "white"}} htmlFor="password"> </Form.Label>
             <Form.Control
               type="password"
               name="password"
               id="password"
+              placeholder="password"
               value={this.state.password}
               onChange={this.handleChange}
             />
