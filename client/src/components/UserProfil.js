@@ -16,7 +16,8 @@ export default class UserProfil extends Component {
       email: this.props.user.email,
       usertype: this.props.user.userType,
       createdAt: (new Date(this.props.user.createdAt)).toLocaleDateString(),
-      show: false
+      show: false,
+      notify: this.props.user.notify,
     }
   }
 
@@ -25,11 +26,9 @@ export default class UserProfil extends Component {
   {
     axios.get(`/api/usereditor/${this.props.user._id}`)
     .then(res =>{
-      console.log(res.data.avatarURL)
-      this.setState({avatarURL: res.data.avatarURL})
+      this.setState({avatarURL: res.data.avatarURL, notify: res.data.notify})
     })
   }
-
 
     //Methodas for the modal
     handleClose = () => {
@@ -44,6 +43,17 @@ export default class UserProfil extends Component {
         show: true
       })
     };
+
+
+    //Method for notifier checkbox
+    toggleChange = () => {
+      axios.post(`api/usereditor/${this.props.user._id}/notify?notifyX=${!this.state.notify}`)
+      .then(res =>{
+        this.setState({
+          notify: !res.data.notify,
+        })
+      },this.getUserProfile())
+    }
 
     //Hiermit werden die UserDaten geholt sobald die Komponente gerendert wird
   componentDidMount() 
@@ -66,7 +76,7 @@ export default class UserProfil extends Component {
         <h2>Email:</h2><input type="text" value={this.state.email} disabled />
         <h2>Mitglied seit:</h2><input type="text" value={this.state.createdAt} disabled />
         <h2>Usertype: </h2><input type="text" value={this.state.usertype} disabled />
-        
+        <h2>Event Reminder</h2> <input type="checkbox" checked={this.state.notify} onChange={this.toggleChange}></input>
         </div>
 
 {/* Modal zum Ändern des User Avatar */}
