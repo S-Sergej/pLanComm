@@ -62,29 +62,29 @@ export default class Antwort extends Component {
     
     return (
       <div >
-        <button variant="primary" onClick={this.handleShow}><FontAwesomeIcon icon="pen" /> Reply  </button>
-      <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
+        <button  className="btn_guestbook" variant="primary" onClick={this.handleShow}><FontAwesomeIcon icon="pen" /> Reply  </button>
+      <Modal style={{marginTop: "200px"}} show={this.state.show} onHide={this.handleClose} animation={true}>
         <Modal.Header closeButton>
           <Modal.Title>Reply</Modal.Title>
         </Modal.Header>
           <Modal.Body >
           <form /* onSubmit={this.createAnswer} */ className="createGame">
-          <div>
-          <label htmlFor="title">Title: </label>
+          <div className="gameInputArrange">
+          <label   htmlFor="title">Title: </label>
           <input type="text" name="title" value={this.state.title} onChange={this.changeFormEntry}/>
           </div>
-          <div>
-          <label htmlFor="description">Reply </label>
-          <textarea name="description" onChange={this.changeFormEntry} defaultValue={this.state.description}></textarea>
+          <div className="gameInputArrange">
+          <label  htmlFor="description">Reply </label>
+          <textarea rows="8" name="description" onChange={this.changeFormEntry} defaultValue={this.state.description}></textarea>
           </div>
-                 
+            
         </form>
-          </Modal.Body>
+         </Modal.Body>
         <Modal.Footer>
-          <button variant="secondary" onClick={this.handleClose}>
+          <button className="modalButton" variant="secondary" onClick={this.handleClose}>
             <FontAwesomeIcon icon="times-circle" />
           </button>
-          <button variant="primary" onClick={this.createAnswer}>
+          <button className="modalButton" variant="primary" onClick={this.createAnswer}>
           <FontAwesomeIcon icon="save" />
           </button>
         </Modal.Footer>

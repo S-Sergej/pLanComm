@@ -7,7 +7,8 @@ export default class Playerdetails extends Component {
   state={
     username: "",
     createdAt: "",
-    avatarURL: ""
+    avatarURL: "",
+    
   
   }
 
@@ -30,11 +31,12 @@ export default class Playerdetails extends Component {
 
     /* const datum= new Date(this.state.createdAt)
     const d= datum.toLocaleDateString() */
-    console.log(this.state)
+    
         return (
-      <div>
-        <h1 style={{color: "black"}}>Player {this.state.username}</h1>
-        <h1 style={{color: "black"}}>Mitglied seit {this.state.createdAt}</h1>
+      <div className="playerModal" >
+        <img  src={this.state.avatarURL} alt={this.state.username} />
+        <h2 style={{color: "white"}}>Player </h2><h4 style={{color: "white"}}>{this.state.username}</h4>
+        <h2 style={{color: "white"}}>Mitglied seit </h2><h4 style={{color: "white"}}>{this.state.createdAt}</h4>
       </div>
     )
   }

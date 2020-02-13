@@ -60,29 +60,29 @@ export default class GameForm extends Component {
     
     return (
       <div >
-        <button variant="primary" onClick={this.handleShow}>Add New Game <FontAwesomeIcon icon="address-card" /></button>
-      <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
+        <button className="btn_guestbook" variant="primary" onClick={this.handleShow}>Add New Game  <FontAwesomeIcon icon="gamepad" /></button>
+      <Modal style={{marginTop: "300px"}} show={this.state.show} onHide={this.handleClose} animation={true} >
         <Modal.Header closeButton>
           <Modal.Title>New Game</Modal.Title>
         </Modal.Header>
           <Modal.Body >
           <form onSubmit={this.createGame} className="createGame">
-          <div>
+          <div className="gameInputArrange">
           <label htmlFor="title">Titel: </label>
           <input type="text" name="title" value={this.state.title} onChange={this.changeFormEntry}/>
           </div>
           <div>
-          <label htmlFor="description">Description </label>
-          <textarea name="description" onChange={this.changeFormEntry} defaultValue={this.state.description}></textarea>
+          <label className="gameInputArrange" htmlFor="description">Description </label>
+          <textarea rows="5" name="description" onChange={this.changeFormEntry} defaultValue={this.state.description}></textarea>
           </div>
                  
         </form>
           </Modal.Body>
         <Modal.Footer>
-          <button variant="secondary" onClick={this.handleClose}>
+          <button className="modalButton" variant="secondary" onClick={this.handleClose}>
             <FontAwesomeIcon icon="times-circle" />
           </button>
-          <button variant="primary" onClick={this.createGame}>
+          <button  className="modalButton"variant="primary" onClick={this.createGame}>
           <FontAwesomeIcon icon="save" />
           </button>
         </Modal.Footer>

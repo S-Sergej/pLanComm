@@ -82,6 +82,8 @@ p{
   justify-content: center;
 }
 
+/* Guestbook design */
+
 .guestBook-Align{
   display: flex;
   justify-content: center;
@@ -99,7 +101,8 @@ p{
 .guestbookEntrie{
   height: 1000px;
   overflow-y: scroll;
-  width: 1000px
+  width: 1000px;
+   
 }
 
 .guestbook{
@@ -125,9 +128,22 @@ p{
 
 
 .btn_guestbook{
-  margin: 15px 0; 
-  background-color: whitesmoke;
+  margin: 5px 0; 
+  background-color: black;
+  border: 1px solid #0ff;
+  color: white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  font-size: larger;
+}
+
+.btn_guestbook:hover{
+  background-color: #0ff;
+  color: black;
+  transition: all .4s ease-in-out;
   border: none;
+  
 }
 
 .guestbook div{
@@ -144,9 +160,10 @@ p{
 }
 
 .guestBookUser{
-  max-height: 140px;
+  max-height: 250px;
   margin: 2px 2px;
   color: whitesmoke;
+  word-break: break-all;
   
  }
 
@@ -167,33 +184,41 @@ p{
 }
 
 
+
+/* Userprofil  */
 .UserProfil{
   margin: 150px 350px;
   display: flex;
-  justify-content: center;
+  justify-items: space-evenly;
   align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
   flex-direction: row;
+  padding: 10px 0 10px 0;
   box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
   border-radius: 30px;
   position: absolute;
   
 }
 
+.UserProfil a{
+  color: white;
+  font-size: large;
+}
+
+.UserProfil a:hover{
+  font-weight: bolder
+}
+
 .UserProfil img{
  min-width: 300px;
  max-width: 400px;
- 
+ border-radius: 15px ;
 }
 
 .UserProfil >div{
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  margin: 0 50px;
+  margin: 0 50px 0 25px;
   
 }
 
@@ -201,11 +226,13 @@ p{
   text-decoration: none;
 }
 
-.userData{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+.userProfilData input{
+  width: 100%;
+  background-color: rgb(112, 228, 228);
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: groove;
+  
 }
 
 footer {
@@ -219,10 +246,7 @@ footer {
   padding: 0 5px
 }
 
-.gamesCard{
-  box-shadow: 5px 5px 15px grey;
-  width: 200px;
-}
+
 
 .cardDisplay{
   display: flex;
@@ -247,7 +271,14 @@ footer {
 
 .playerCard img{
   padding: 15px 0;
-  
+  max-width: 90%
+}
+
+.playerCard p{
+ color: black;
+ font-weight: bold;
+ max-width: 95%;
+ word-break: break-all;
 }
 
 button{
@@ -260,6 +291,9 @@ button{
   font-size: 18px;
 }
 
+
+/* Usersliste auf der Mainpage */
+
 .alignUsers {
  display: grid;
  align-items: flex-start;
@@ -267,19 +301,15 @@ button{
  
 }
 
-
-
 .alignUsers button{
   max-width: 100px;
 }
-
 
 .alignPlayerShow{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-
 }
 
 
@@ -307,7 +337,231 @@ button{
 }
 
 
-/* Flipping Cards */
+.editAvatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white
+}
+
+.editAvatar Form{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+
+.EventData{
+  margin: 150px 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  border-radius: 30px;
+  position: absolute;
+  
+}
+
+
+
+/* custom Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #0ff;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(28, 167, 167);
+  border-radius: 10px;
+}
+
+
+/* Hier fängt das Design für die Antworten im Guestbook an */
+
+.answerdetail{
+  
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 5px 150px 5px 25px;
+  
+}
+
+.answer{
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  margin: 10px 90px;
+  
+}
+
+
+
+/* Hier ist das alternative Design für die Antworten */
+
+.answer > div{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0 10px;
+  padding: 0 5px
+}
+
+.answer div:nth-child(2){
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  
+}
+
+/* Hier ist das Ende für das alternative Design für die Antworten */
+
+.answer img{
+  max-height: 80px;
+  margin: 0 30px 0 0;
+
+}
+
+.answer h1{
+  font-size: 20px;
+  
+}
+
+.arrangeDateAndAnswer{
+  display: flex;
+  justify-content: left;
+  
+}
+
+.arrangeDateAndAnswer >p{
+  padding: 0 50px 0 0;
+  text-overflow: ellipsis;
+}
+
+
+/* Design für das Modal Popup */
+.modalButton{
+  background-color: white;
+  border: 2px solid black;
+ 
+}
+
+.modalButton:hover{
+  background-color: black;
+  color: white;
+  transition: all .4s ease-in-out;
+}
+
+.modalAvatar{
+  background-color: white;
+  border: 2px solid black;
+  color: black
+}
+
+.modalAvatar:hover{
+  background-color: black;
+  color: white;
+  transition: all .4s ease-in-out;
+}
+
+
+
+/* Hier das Design für die Playerdetails */
+.playerDetails{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: black;
+  box-shadow: 5px 0px 15px grey;
+  
+  }
+
+
+  .playerDetailsFotter{
+    box-shadow: 5px 5px 15px grey;
+  }
+
+  
+
+
+ .playerModal img{
+   background-color: rgb(224, 214, 214);
+   min-width: 100%;
+   max-width: 100%;
+   position: relative;
+  
+ }
+
+
+ /* Hier das Design, damit das Form im Modal für die Games besser aussieht */
+ .gameInputArrange{
+   display: flex;
+   justify-items: center;
+   align-items: flex-start;
+   flex-direction: column;
+   
+ }
+
+
+ .gameInputArrange input, textarea{
+   width: 100%
+ }
+
+
+ .gamesCard{
+  box-shadow: 5px 5px 15px grey;
+  width: 200px;
+}
+
+
+.gameArrange{
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.createGame{
+  display: flex;
+  justify-content: center;
+  
+  flex-direction: column;
+  
+}
+
+
+.createGame label{
+  width: 100px
+}
+
+.createGame input, textarea{
+  width: 350px
+}
+
+
+/* Flipping Cards für die Games*/
 .card-container{
   perspective: 1000px;
   background-color: transparent;
@@ -354,14 +608,7 @@ button{
             transform: rotateY( 180deg );
 }
 
-.gameArrange{
-  margin: 25px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
+
 
 .front h1{
   color: whitesmoke;
@@ -378,127 +625,3 @@ button{
 .back p{
   color: whitesmoke;
 }
-
-.createGame{
-  display: flex;
-  justify-content: center;
-  
-  flex-direction: column;
-  
-}
-
-
-.createGame label{
-  width: 100px
-}
-
-.createGame input, textarea{
-  width: 350px
-}
-
-.editAvatar{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white
-}
-
-.editAvatar Form{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-
-.EventData{
-  margin: 150px 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
-  border-radius: 30px;
-  position: absolute;
-  
-}
-
-
-/* width */
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 10px;
-}
-
-
-
-.answerdetail{
-  
-  max-width: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  margin: 5px 150px 5px 25px;
-  
-}
-
-.answer{
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  margin: 10px 50px;
-  
-}
-
-.answer > div{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.answer div:nth-child(2){
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  
-}
-
-.answer img{
-  max-width: 100px;
-  margin: 0 30px 0 0
-}
-
-.answer h1{
-  font-size: 20px;
-}
-
-.arrangeDateAndAnswer{
-  display: flex;
-  justify-content: left;
-  
-}
-
-.arrangeDateAndAnswer p{
-  padding: 0 50px 0 0;
-  
-}
-
