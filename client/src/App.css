@@ -319,11 +319,11 @@ button{
 .welcomPage{
   min-width: 500px;
   min-height: 800px;
-  background-color: black;
   display: flex;
   justify-content: top;
   align-items: center;
   flex-direction: column;
+  z-index: 1;
 }
 
 .FontAwesome:hover{
@@ -661,10 +661,13 @@ button{
     position: absolute;
 }
 
-#background-video {
+
+.backgroundvideo {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 250vh;
+  left: 0;
+  top: 0;
+  margin: 0%;
+  z-index: -1;
+  overflow: hidden;
 }

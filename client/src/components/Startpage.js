@@ -6,8 +6,9 @@ class Startpage extends React.Component {
 
     state={
         showLogin: false,
-        showSignup: false
-    }
+        showSignup: false,
+        loading: true
+    };
 
     showLogin=()=>{
         this.setState({
@@ -25,24 +26,35 @@ class Startpage extends React.Component {
         })
     }
 
+    componentDidMount() {
+        if (this.video) {
+          this.video.addEventListener("loadeddata", () => {
+            this.setState({ loading: false });
+          });
+        }
+      }
+
+      componentWillUnmount() {
+        if (this.video) {
+          this.video.removeEventListener("loadeddata", () => {
+          });
+        }
+      }
+
 
     render() {
         return (
+        <div className="pseudowrap">
+        <video className="backgroundvideo" loop muted autoPlay><source src="https://res.cloudinary.com/ironhackcamp/video/upload/v1581610208/video/bckgrnd_cp5w4j.mp4"/>no support for this video</video>
         <div className="welcomPage">
-        <video id="background-video1" loop autoPlay>
-            <source src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"/>
-                Your browser does not support the video tag.
-        </video>
         {/* Transition animation for the Startpage Logo */}
          <Spring
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}
             config={{duration: 5000}}>
                 {props => <div style={props}>
-                    
-                        <h1 style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
-                            color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
-                  
+                    <h1 style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
+                    color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
             </div>}
 
         </Spring>
@@ -53,6 +65,7 @@ class Startpage extends React.Component {
             config={{delay: 3000, duration: 2000}}>
             {props => <div style={props}><p> Welcome to the private Lan Community !</p></div>}
         </Spring>
+    </div>
     </div>
         )
     }
