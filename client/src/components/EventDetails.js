@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Game from './Game';
 import { faDribbble } from '@fortawesome/free-brands-svg-icons';
 
-
 export default class Event extends Component {
 
   state={
@@ -76,7 +75,7 @@ teamGeneratorSubmit = (event) => {
       this.setState({
         eventname: "",
         description: ""
-      })
+      },this.extraMethodGetEvent())
     })
   }
 
@@ -89,7 +88,7 @@ teamGeneratorSubmit = (event) => {
     })
     .then(res=> {
       this.setState()
-    })
+    },this.extraMethodGetEvent())
   }
 
   delete=(event)=>{
@@ -99,6 +98,7 @@ teamGeneratorSubmit = (event) => {
     })
     .then(res => {
       this.setState()
+      this.props.history.push("/main")
     })
   }
 
