@@ -104,10 +104,10 @@ class Startpage extends React.Component {
           <Modal.Body className="aboutModalBody">
               <div className="aboutModalBodyDiv">
                   <p><p style={{fontSize : "20px", fontStyle : "italic"}}>With this awesome app you can:</p> <br>
-                  </br>-Plan and create Events for upcoming LANs Partys<br>
+                  </br>-Plan and create Events for LAN Partys<br>
                   </br>-Meet up and communicate with friends (or strangers) online<br>
-                  </br>-Subscribe and get notifications for desired events <br>
-                  </br>-Simply generate teams for gaming sessions <br>
+                  </br>-Subscribe and receive notifications by desired events <br>
+                  </br>-Simply generate teams on your gaming sessions <br>
                   </br>-Make individual game suggestions for Events <br>
                   </br>
                   </p>
