@@ -107,7 +107,7 @@ class Startpage extends React.Component {
                   </br>-Plan and create Events for LAN Partys<br>
                   </br>-Meet up and communicate with friends (or strangers) online<br>
                   </br>-Subscribe and receive notifications by desired events <br>
-                  </br>-Simply generate teams on your gaming sessions <br>
+                  </br>-Generate random teams for your gaming sessions <br>
                   </br>-Make individual game suggestions for Events <br>
                   </br>
                   </p>
