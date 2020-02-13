@@ -276,7 +276,7 @@ footer {
   background-color: #0ff;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  
+  margin-top: 20px
    
 }
 
@@ -309,7 +309,7 @@ button{
  display: grid;
  align-items: flex-start;
  flex-direction: column;
- 
+ margin-top: 1200px
 
 }
 
@@ -665,7 +665,7 @@ button{
 
 .aboutModalBodyDiv  >p{
   color: whitesmoke;
-
+}
 
 .eventDetailsCard{
   -webkit-box-shadow: 14px 40px 118px 58px rgba(67,150,191,1);

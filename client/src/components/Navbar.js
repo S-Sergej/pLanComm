@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar as Nav } from "react-bootstrap";
 import { logout } from "../services/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Spring} from 'react-spring/renderprops'
 
 const Navbar = props => {
   const handleLogout = () => {
@@ -15,7 +16,7 @@ const Navbar = props => {
   return (
     <Nav className="nav justify-content-end">
       {props.user ? (
-        <div class="fixed-top">
+        <div >
           <Link to="/main">Welcome {props.user.username}</Link>
           <Link to="/userprofil">UserProfile <FontAwesomeIcon className="FontAwesome"icon="user" /></Link>
           <Link to="/game">Game <FontAwesomeIcon  className="FontAwesome"icon="gamepad" /></Link>
@@ -27,8 +28,15 @@ const Navbar = props => {
         </div>
       ) : (
         <div>
-          <Link to="/signup">Signup <FontAwesomeIcon className="FontAwesome"icon="user-plus" /></Link>
-          <Link to="/login">Login <FontAwesomeIcon className="FontAwesome"icon="sign-in-alt"/></Link>
+        <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            config={{delay: 6000, duration: 2000}}>
+            {props => <div style={props}>
+              <Link to="/signup">Signup <FontAwesomeIcon className="FontAwesome"icon="user-plus" /></Link>
+              <Link to="/login">Login <FontAwesomeIcon className="FontAwesome"icon="sign-in-alt"/></Link></div>}
+        </Spring>
+          
         </div>
       )}
     </Nav>
