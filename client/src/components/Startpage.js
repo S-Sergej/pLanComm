@@ -9,8 +9,9 @@ class Startpage extends React.Component {
 
     state={
         showLogin: false,
-        showSignup: false
-    }
+        showSignup: false,
+        loading: true
+    };
 
     showLogin=()=>{
         this.setState({
@@ -28,6 +29,22 @@ class Startpage extends React.Component {
         })
     }
 
+
+    componentDidMount() {
+        if (this.video) {
+          this.video.addEventListener("loadeddata", () => {
+            this.setState({ loading: false });
+          });
+        }
+      }
+
+      componentWillUnmount() {
+        if (this.video) {
+          this.video.removeEventListener("loadeddata", () => {
+          });
+        }
+      }
+
     //Methodas for the modal
    handleClose = () => {
     this.setState({
@@ -44,21 +61,21 @@ class Startpage extends React.Component {
   };
 
 
+
     render() {
         return (
+        <div className="pseudowrap">
+        <video className="backgroundvideo" loop muted autoPlay><source src="https://res.cloudinary.com/ironhackcamp/video/upload/v1581610208/video/bckgrnd_cp5w4j.mp4"/>no support for this video</video>
         <div className="welcomPage">
-        
         {/* Transition animation for the Startpage Logo */}
          <Spring
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}
             config={{duration: 5000}}>
                 {props => <div style={props}>
-                    
-                        <h1  onClick={this.handleShow} style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
-                            color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
-                  
-            </div>}
+                <h1  onClick={this.handleShow} style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
+                color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
+              </div>}
 
         </Spring>
 
@@ -67,9 +84,7 @@ class Startpage extends React.Component {
             to={{ opacity: 1 }}
             config={{delay: 3000, duration: 2000}}>
             {props => <div style={props}><p style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff"}}> private Lan Community </p></div>}
-        </Spring>
-
-        
+        </Spring>        
 
         {/*/PJAS Logo is rendered here */}
 
@@ -89,10 +104,10 @@ class Startpage extends React.Component {
           <Modal.Body className="aboutModalBody">
               <div className="aboutModalBodyDiv">
                   <p><p style={{fontSize : "20px", fontStyle : "italic"}}>With this awesome app you can:</p> <br>
-                  </br>-Plan and create Events for upcoming LANs Partys<br>
+                  </br>-Plan and create Events for LAN Partys<br>
                   </br>-Meet up and communicate with friends (or strangers) online<br>
-                  </br>-Subscribe and get notifications for desired events <br>
-                  </br>-Simply generate teams for gaming sessions <br>
+                  </br>-Subscribe and receive notifications by desired events <br>
+                  </br>-Generate random teams for your gaming sessions <br>
                   </br>-Make individual game suggestions for Events <br>
                   </br>
                   </p>
@@ -101,7 +116,7 @@ class Startpage extends React.Component {
          </Modal.Body>
        </Modal>
       
-      
+      </div>  
     </div>
         )
     }
