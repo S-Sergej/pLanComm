@@ -29,7 +29,10 @@ class Startpage extends React.Component {
     render() {
         return (
         <div className="welcomPage">
-        
+        <video id="background-video1" loop autoPlay>
+            <source src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"/>
+                Your browser does not support the video tag.
+        </video>
         {/* Transition animation for the Startpage Logo */}
          <Spring
             from={{ opacity: 0 }}
@@ -50,7 +53,6 @@ class Startpage extends React.Component {
             config={{delay: 3000, duration: 2000}}>
             {props => <div style={props}><p> Welcome to the private Lan Community !</p></div>}
         </Spring>
-      
     </div>
         )
     }
