@@ -73,12 +73,9 @@ class Startpage extends React.Component {
             to={{ opacity: 1 }}
             config={{duration: 5000}}>
                 {props => <div style={props}>
-                   
-                        <h1  onClick={this.handleShow} style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
-                            color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
-                  
-
-            </div>}
+                <h1  onClick={this.handleShow} style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff",
+                color: "#FFFFFF", fontSize: "200px", fontWeight: "bolder", }} >pLanComm</h1>
+              </div>}
 
         </Spring>
 
@@ -87,12 +84,7 @@ class Startpage extends React.Component {
             to={{ opacity: 1 }}
             config={{delay: 3000, duration: 2000}}>
             {props => <div style={props}><p style={{textShadow: "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff"}}> private Lan Community </p></div>}
-        </Spring>
-
-    </div>
-
-
-        
+        </Spring>        
 
         {/*/PJAS Logo is rendered here */}
 
@@ -124,7 +116,7 @@ class Startpage extends React.Component {
          </Modal.Body>
        </Modal>
       
-      
+      </div>  
     </div>
         )
     }
