@@ -11,8 +11,8 @@ import axios from "axios";
   constructor(props){
     super(props);
     this.state={
-      username: this.props.user.username,
-      avatarUrl: this.props.user.avatarURL
+      username: this.props.username,
+      avatarUrl: this.props.avatarURL
     }
       };
 
@@ -35,7 +35,7 @@ import axios from "axios";
     try {
       const urlFromCloudinary = await service.handleUpload(uploadData);
       //const publicID = cloudinaryResponse.public_id;
-      this.setState({ avatarURL: urlFromCloudinary});
+      this.setState({ avatarURL: urlFromCloudinary}, this.props.handleClose);
       this.props.history.push('/userprofil')
     } catch (err) {
       this.setState({
@@ -63,20 +63,21 @@ import axios from "axios";
     console.log("This is a test", this.state);
     return (
       <div className="editAvatar">
-        <h2>Change your avatar</h2>
+        {/* <h2 style={{color: "grey"}}>Change your avatar</h2> */}
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label htmlFor="avatarURL" >Current avatar: </Form.Label>
+            <Form.Label htmlFor="avatarURL" style={{color: "black"}}>Current avatar: </Form.Label>
             <Form.Control
               type="file"
               name="image"
               id="image"
               onChange={this.handleFile}
+              style={{color: "black"}}
             />
           </Form.Group>
 
           {/*{this.state.error && (<Alert variant="danger">{this.state.error}</Alert>)} */}
-          <Button style={{backgroundColor: "white", color: "black"}}type="submit">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Button>
+          <Button className="modalAvatar" type="submit">Edit Avatar <FontAwesomeIcon icon="user-edit" /></Button>
         </Form>
       </div>
     );

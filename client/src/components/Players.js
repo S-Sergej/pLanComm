@@ -11,6 +11,7 @@ export default class Players extends Component {
     playerId: "",
     showPlayer:false,
     show: false,
+    
    
   }
 
@@ -36,7 +37,11 @@ export default class Players extends Component {
       playerId: playerId,
       show: true
     })
+   
   }
+
+
+ 
 
    //Methodas for the modal
    handleClose = () => {
@@ -59,22 +64,20 @@ export default class Players extends Component {
           
   <div className="playerCard" key={onePlayer._id} onClick={()=>this.showPlayerDetails(onePlayer._id)}>
     
-  <img style={{width: "60px"}}src={onePlayer.avatarURL} alt={onePlayer.username} />
-  <p style={{color: "black"}}>{onePlayer.username}</p>
+  <img src={onePlayer.avatarURL} alt={onePlayer.username} />
+  <p >{onePlayer.username}</p>
   </div>)}
          </div>
 
             
       
-        <Modal  show={this.state.show} onHide={this.handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Player Details</Modal.Title>
+        <Modal show={this.state.show} onHide={this.handleClose} animation={true} keyboard={true} autoFocus={true} backdrop={false} size="xL">
+        <Modal.Header className="playerDetails">
+        <Playerdetails playerId={this.state.playerId}  />
+        
         </Modal.Header>
-          <Modal.Body >
-          <Playerdetails playerId={this.state.playerId}  />
-          </Modal.Body>
-        <Modal.Footer>
-          <button variant="secondary" onClick={this.handleClose}>
+         <Modal.Footer className="playerDetailsFotter">
+          <button className="modalButton" variant="secondary" onClick={this.handleClose}>
             <FontAwesomeIcon icon="times-circle" />
           </button>
           </Modal.Footer>

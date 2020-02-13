@@ -81,7 +81,7 @@ export default class Guestbook extends Component {
  
       
              {/* Hier ist der Code, damit die Admins Einträge löschen können */}
-             {(this.state.currentUser.userType ==="admin") ? <button onClick={()=>this.deleteEntrie(oneEntrie._id)}><FontAwesomeIcon icon="trash-alt" /></button> : null}
+             {(this.state.currentUser.userType ==="admin") ? <button className="btn_guestbook" onClick={()=>this.deleteEntrie(oneEntrie._id)}><FontAwesomeIcon icon="trash-alt" /></button> : null}
              {/* Hier ist der Code für die Antwort Funktion */}
              <Answer showAllEntries={this.showAllEntries} entryId={oneEntrie._id} user={this.state.currentUser}/>
 

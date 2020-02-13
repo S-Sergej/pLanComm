@@ -2,11 +2,35 @@ import React from "react";
 import {Spring} from 'react-spring/renderprops'
 
 
-
 class Startpage extends React.Component {
+
+    state={
+        showLogin: false,
+        showSignup: false
+    }
+
+    showLogin=()=>{
+        this.setState({
+            showLogin: !this.state.showLogin,
+            showSignup: false
+            
+        })
+    }
+
+    showSignup=()=>{
+        this.setState({
+            showSignup: !this.state.showSignup,
+            showLogin: false
+            
+        })
+    }
+
+
     render() {
         return (
             <div className="welcomPage">
+        
+        {/* Transition animation for the Startpage Logo */}
          <Spring
             from={{ opacity: 0 }}
             to={{ opacity: 1 }}
@@ -26,7 +50,8 @@ class Startpage extends React.Component {
             config={{delay: 3000, duration: 2000}}>
             {props => <div style={props}><p> Welcome to the private Lan Community !</p></div>}
         </Spring>
-        </div>
+      
+      </div>
         )
     }
 

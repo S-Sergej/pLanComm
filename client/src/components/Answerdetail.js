@@ -43,8 +43,8 @@ export default class Answerdetail extends Component {
       
    {/* Ob der Show oder Hide Button angezeigt werden soll */}
    { (!this.state.showAnswer) ? 
-   <button guestbookid={this.props.guestbookid} onClick={()=>this.showAnswer(this.props.guestbookid)}><FontAwesomeIcon icon="comments" /> Show</button> 
-   : <button onClick={this.hideAnswer}><FontAwesomeIcon icon="times-circle" /> Close </button>}
+   <button  className="btn_guestbook" guestbookid={this.props.guestbookid} onClick={()=>this.showAnswer(this.props.guestbookid)}><FontAwesomeIcon icon="comments" /> Show</button> 
+   : <button  className="btn_guestbook"onClick={this.hideAnswer}><FontAwesomeIcon icon="times-circle" /> Close </button>}
       
        
       {/* Hier werden dann die Antworten gerendert */}
@@ -68,18 +68,18 @@ export default class Answerdetail extends Component {
                   <div className="answer">
            
               {(oneAnswer.user !== null) ? 
-                  <div>
-                      <img src={oneAnswer.user.avatarURL} alt={oneAnswer.user.username} />
+                  <div className="left">
+                      <img style={{backgroundColor: "white"}} src={oneAnswer.user.avatarURL} alt={oneAnswer.user.username} />
                       <p>{oneAnswer.user.username}</p>
                   </div>
 
                     : 
-                  <div>
+                  <div className="left">
                     <img style={{backgroundColor: "white", width: "80px"}} src="https://cdn.onlinewebfonts.com/svg/img_74993.png" alt="bild" />                    <p>anonymous</p>
                   </div> 
               }
            
-           <div>
+           <div className="right">
               <h1>{oneAnswer.title}</h1>
               <p>{oneAnswer.description}</p>
               <p>{new Date(oneAnswer.createdAt).toLocaleDateString()} {new Date(oneAnswer.createdAt).toLocaleTimeString()}</p>
