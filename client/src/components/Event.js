@@ -36,14 +36,14 @@ export default class Event extends Component {
         eventname: "",
         description: "",
         eventdate: ""
-      }, this.props.allEvents())
+      }, this.props.allEvents(), this.props.handleCloseModal())
     })
+    
   };
 
   render() {
     return (
       <div>
-        <h1>Events</h1>    
         <form onSubmit={this.createEvent} className="createEvent">
         <button type='submit'>Send</button>
           <label htmlFor="eventdate">Schedule:</label>
