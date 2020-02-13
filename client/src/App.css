@@ -41,7 +41,6 @@ button {
 .nav{
   
   min-height: 100px;
-  
 }
 
 .nav a {
@@ -321,7 +320,7 @@ button{
   min-height: 800px;
   background-color: black;
   display: flex;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
   flex-direction: column;
 }
@@ -646,5 +645,32 @@ button{
 }
 
 .back p{
+  color: whitesmoke;
+}
+
+.startpageTest{
+  margin: 150px 350px;
+  display: flex;
+  justify-items: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px 0 10px 0;
+  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
+  border-radius: 30px;
+}
+
+.startpageTest img{
+  min-width: 300px;
+ max-width: 400px;
+ border-radius: 15px 
+}
+
+.aboutModalBody{
+  background-color: black;
+  height: 300px;
+  box-shadow: 10px 60px 120px -60px rgba(43,193,196,1);
+}
+
+.aboutModalBodyDiv  >p{
   color: whitesmoke;
 }
