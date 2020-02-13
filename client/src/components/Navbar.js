@@ -13,9 +13,9 @@ const Navbar = props => {
   };
 
   return (
-    <Nav className="nav justify-content-end" >
+    <Nav className="nav justify-content-end">
       {props.user ? (
-        <div>
+        <div class="fixed-top">
           <Link to="/main">Welcome {props.user.username}</Link>
           <Link to="/userprofil">UserProfile <FontAwesomeIcon className="FontAwesome"icon="user" /></Link>
           <Link to="/game">Game <FontAwesomeIcon  className="FontAwesome"icon="gamepad" /></Link>
