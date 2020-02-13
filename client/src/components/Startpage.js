@@ -46,7 +46,7 @@ class Startpage extends React.Component {
 
     render() {
         return (
-            <div className="welcomPage">
+        <div className="welcomPage">
         
         {/* Transition animation for the Startpage Logo */}
          <Spring
@@ -102,7 +102,7 @@ class Startpage extends React.Component {
        </Modal>
       
       
-      </div>
+    </div>
         )
     }
 

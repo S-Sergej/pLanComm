@@ -11,6 +11,7 @@ const userSchema = new Schema(
 	  password: String,
     googleID: String,
     githubId: String,
+    notify: {type: Boolean, default: false },
     avatarURL: {
       type: String,
       default: "https://cdn.onlinewebfonts.com/svg/img_74993.png"

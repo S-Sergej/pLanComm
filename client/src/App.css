@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,600,700&display=swap');
 
 
 .App {
@@ -7,7 +8,8 @@
 }
 
 body{
-  background-color: black
+  background-color: black;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .App-logo {
@@ -100,6 +102,7 @@ p{
   height: 800px;
 }
 
+
 .guestbookEntrie{
   height: 1000px;
   overflow-y: scroll;
@@ -120,6 +123,11 @@ p{
   
   }
 
+
+ .guestbookEntrie::-webkit-scrollbar { height: 0 !important }
+
+ .oneGuestbookEntrie::-webkit-scrollbar { height: 0 !important }
+
 .oneGuestbookEntrie{
   max-height: 110px;
   max-width: 550px;
@@ -135,9 +143,10 @@ p{
   border: 1px solid #0ff;
   color: white;
   border-radius: 5px;
-  width: 250px;
+  width: 280px;
   height: 50px;
   font-size: larger;
+  
 }
 
 .btn_guestbook:hover{
@@ -301,6 +310,7 @@ button{
  align-items: flex-start;
  flex-direction: column;
  
+
 }
 
 .alignUsers button{
@@ -312,7 +322,17 @@ button{
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 250px;
+  height: 1000px;
+  padding-top: 500px;
+  padding-bottom: 50px
+  
+    
 }
+
+.alignPlayerShow::-webkit-scrollbar { height: 0 !important }
 
 
 .welcomPage{
@@ -363,6 +383,7 @@ button{
   background-position: center;
   font-family: 'Open Sans', sans-serif;
   font-family: 'Rock Salt', cursive;
+  margin-top: 120px
   }
 
 .eventhistory h3{
@@ -373,43 +394,13 @@ button{
   left: 480px;
   color: whitesmoke;
   text-shadow: 2px 2px black;
-}
-
-.EventData{
-  margin: 150px 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  box-shadow:  0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff;
-  border-radius: 30px;
-  position: absolute;
-  
+  margin-top: 140px
 }
 
 
 
-/* custom Scrollbar */
-/* width */
-::-webkit-scrollbar {
-  width: 15px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #0ff;
-  border-radius: 10px;
-}
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(28, 167, 167);
-  border-radius: 10px;
-}
 
 
 /* Hier fängt das Design für die Antworten im Guestbook an */
@@ -648,6 +639,7 @@ button{
   color: whitesmoke;
 }
 
+
 .startpageTest{
   margin: 150px 350px;
   display: flex;
@@ -673,4 +665,268 @@ button{
 
 .aboutModalBodyDiv  >p{
   color: whitesmoke;
+
+
+.eventDetailsCard{
+  -webkit-box-shadow: 14px 40px 118px 58px rgba(67,150,191,1);
+  -moz-box-shadow: 14px 40px 118px 58px rgba(67,150,191,1);
+  box-shadow: 14px 40px 118px 58px rgba(67,150,191,1);
+   width: 1000px;
+  padding: 50px 0;
+  border-radius: 15px;
+  
+  margin: 50px 0 100px 500px;
+  padding: 10px 0 50px 0;
+}
+
+
+
+
+
+
+
+
+
+/* EventData Arrangement */
+
+.eventArrange{
+  margin: 25px 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  
+}
+
+
+
+.eventArrange a{
+  text-decoration: none;
+  color: whitesmoke
+}
+
+
+/* .EventData{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  position: absolute;
+  background-color: black;
+ 
+}
+ */
+.Mainpage{
+  
+  display: flex;
+  justify-items: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 1000px
+}
+
+.userButton{
+  
+    background: none repeat scroll 0 0 #0ff;
+    border: medium none;
+    color: black;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    top: 30px;
+    width: 100px;
+    height: 24px;
+    font-weight: bolder
+}
+
+.hide{
+  background-color: black;
+  color: #0ff;
+  border: none;
+  height: 25px;
+  
+}
+
+
+.btn_event{
+  margin: 5px 0; 
+  background-color: black;
+  border: 1px solid #0ff;
+  color: white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  font-size: larger;
+  }
+
+
+.btn_event:hover{
+  background-color: #0ff;
+  color: black;
+  transition: all .4s ease-in-out;
+  border: none;
+  
+}
+
+
+.singleEvent{
+  width: 400px;
+  -webkit-box-shadow: 53px 56px 203px 39px #4f6875;
+-moz-box-shadow: 53px 56px 203px 39px rgba(79,104,117,1);
+box-shadow: 53px 56px 203px 39px rgba(79,104,117,1);
+  margin: 15px;
+  border-top-right-radius: 50px;
+  background-color: rgb(42, 209, 209);
+  
+}
+
+.event_basic{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.subscribe{
+  background-color: #005fb5;
+  color: white;
+  font-weight: bolder;
+  border-color: #005fb5;
+  }
+
+.subscribe:hover, .unsubscribe:hover, .delete:hover, .deleteGame:hover{
+  background-color: white;
+  color:  #005fb5;
+}
+
+.unsubscribe{
+  background-color: #6092bf;
+  color: white;
+  font-weight: bolder;
+  border-color: #6092bf;
+}
+
+.delete{
+  background-color: #ff7000;
+  color: white;
+  font-weight: bolder;
+  border-color: #ff7000
+  
+}
+
+.team{
+  background-color: #ffcf00;
+  border:none;
+  font-weight: bold;
+  
+}
+
+.team:hover{
+  background-color: black;
+  color: #ffcf00;
+  border: 1px solid #ffcf00;
+}
+
+.game{
+  border-color: #ffcf00;
+  border-width: thin;
+  color: #ffcf00
+}
+
+.game:hover{
+  background-color: #ffcf00;
+  border-width: thin;
+  color: black;
+  font-weight: bold;
+}
+
+.subscribe, .unsubscribe, .delete, .team, .game{
+  margin: 30px 15px 15px 25px
+}
+
+
+.createTeam{
+  border: 2px solid white;
+  border-radius: 15px;
+  margin: 10px 250px;
+  padding: 18px 0 10px 0;
+}
+
+
+.eventCard{
+  margin: 0 60px 0 100px;
+  border-radius: 15px;
+  border: 1px solid white
+ 
+}
+
+.eventCard h1{
+  font-size: 50px;
+  color: whitesmoke;
+  font-weight: bold
+}
+
+.eventCard h4{
+  color: whitesmoke;
+  font-size: 35px;
+  font-weight: bolder
+}
+
+.eventCard p{
+  color: whitesmoke;
+  font-size: 28px
+}
+
+.timeEvent p{
+  color: whitesmoke;
+  font-size: 20px
+}
+
+.Games{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 100px
+  
+}
+
+.Games p{
+  width: 250px;
+  border: 1px solid whitesmoke;
+  margin: 0 100px;
+  
+}
+
+.deleteGame{
+  background-color: #ff7000;
+  color: white;
+  font-weight: bolder;
+  border-color: #ff7000
+}
+
+.createTeam div> p{
+  color: white;
+  font-size: 25px;
+  font-weight: bold
+ 
+}
+
+.createTeam div >span{
+  color: white;
+  font-size: 20px
+}
+
+.createEvent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 }

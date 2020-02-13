@@ -27,12 +27,9 @@ router.post('/upload', uploadAvatarCloud.single('avatarURL'),
       });
   }); 
 
-
-
   router.post('/update',
   (req, res, next) => {
     const {avatarURL} = req.body
-    console.log("UUUUUUUUPPDATEEEEEE", avatarURL)
     User.findOneAndUpdate({ _id: req.user._id }, {avatarURL})
       .then(user => {
         res.json(user);
@@ -42,6 +39,17 @@ router.post('/upload', uploadAvatarCloud.single('avatarURL'),
       });
   }); 
 
+  router.post('/:id/notify', (req, res) => {
+    let notify = req.query.notifyX
+    console.log("REQUEST>>>>>>>>>", notify)
+    User.findOneAndUpdate({_id: req.user._id}, {notify: notify})
+    .then(user => {
+      res.json(user);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  });
 
 
 module.exports = router;

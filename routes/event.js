@@ -12,14 +12,12 @@ router.get('/', (req, res, next) => {
     .populate('subscriber')
     .populate('games')
     .then(allEvents => {
-      console.log('ALL EVENT GET >>>>>>>>>>>>', res)
       res.json(allEvents)
     })
-    .catch(err => console.log('ALL EVENTS FROM FRONT >>>>>>>>', err))
+    .catch(err => console.log('Event Error >>>>>>>>', err))
 })
 
 router.post('/', (req, res, next) => {
-  console.log('NEW EVENT PPOST >>>>>>>>>>>>', req)
   const eventname = req.body.eventname
   const eventdate = req.body.eventdate
   const description = req.body.description
