@@ -142,48 +142,55 @@ teamGeneratorSubmit = (event) => {
 
   render() {
     return (
-      <div> 
+      <div className="eventDetailsCard"> 
+      <div className="eventCard">
         <h1>{this.state.event.eventname}</h1>
-        <p>{new Date(this.state.event.eventdate).toLocaleDateString()}</p>
-        <p>Begin at: {new Date(this.state.event.eventdate).toLocaleTimeString()}</p>
-        <p>Description:</p>
-        <h4 style={{color: "green"}}>{this.state.event.description}</h4>
-        <p>created by: {this.state.event.ownername}</p>
+        <div className="time4Event">
+        <p>Begin at: {new Date(this.state.event.eventdate).toLocaleDateString()} {new Date(this.state.event.eventdate).toLocaleTimeString()}</p>
+        </div>
+        <h4>Description:</h4>
+        <p >{this.state.event.description}</p>
+        <h4>created by:<p> {this.state.event.ownername}</p></h4>
 
-      <div>subscribed for event: {this.state.subscriber.map(oneSubscriber=><p key={oneSubscriber._id}>{oneSubscriber.username}</p>)}</div>
+      <div><h4>Subscriber</h4> {this.state.subscriber.map(oneSubscriber=><p key={oneSubscriber._id}>{oneSubscriber.username}</p>)}</div>
 
+        <div >
+         
+        <h4>Event Games:</h4><p>{this.state.eventGames.map(oneGame=>
         <div className="Games">
-        <p>Event Games:</p><p>{this.state.eventGames.map(oneGame=>
-        <div>{oneGame.title}
-          {(this.state.owner === this.state.user._id) ? <button onClick={()=>this.deletegame(oneGame._id)}>delete</button> : null}
+          <p>{oneGame.title}</p>
+          {(this.state.owner === this.state.user._id) ? <button className="btn_event deleteGame" onClick={()=>this.deletegame(oneGame._id)}><FontAwesomeIcon icon="eraser" /> delete</button> : null}
         </div>)}
         </p>
+          
 
         {/* Dropdown 4 games */}
         <select onChange={this.dropDownOnChange} >
           {this.state.games.map(oneGame=><option key={oneGame._id} value={oneGame._id}>{oneGame.title}</option>)}
           <option selected={this.state.checked}>choose a game</option>
         </select>
-          <button style={{color: "purple"}} onClick={this.addgame}>Add the Game</button>
+          <button className="btn_event game" onClick={this.addgame}><FontAwesomeIcon icon="gamepad" /> Add the Game</button>
         </div>
-
-        <button style={{color: "blue"}} onClick={this.subscribe}>subscribe</button>
-        <button style={{color: "red"}} onClick={this.unsubscribe}>unsubscribe</button>
-        <button style={{color: "black"}} onClick={this.delete}>delete Event</button>
-        <div>Teams for events: </div>
-        <div>
+        </div>   
+        <button className="btn_event subscribe" onClick={this.subscribe}><FontAwesomeIcon icon="campground" /> subscribe</button>
+        <button className="btn_event unsubscribe" onClick={this.unsubscribe}><FontAwesomeIcon icon="user-slash" /> unsubscribe</button>
+        <button className="btn_event delete" onClick={this.delete}><FontAwesomeIcon icon="trash-alt" /> delete Event</button>
+        
+        <div className="createTeam">
+        
           {this.state.teams.map(
             (oneTeam, index) => 
-            (<div style={{color: "green"}} key = {Math.random()*(index+1)}> Team{index+1}: 
+            (<div key = {Math.random()*(index+1)}><p> Team{index+1}: </p>
               {oneTeam.map((eachUser, index) =>
                  <span  key = {Math.random()*(index+1)}> {eachUser} </span>
                  )}
             </div>))}
-        </div>
-        <form onSubmit={this.teamGeneratorSubmit}>
-        <button style={{color: "black"}} type="submit">Create Teams</button>
+        
+        <form  onSubmit={this.teamGeneratorSubmit}>
+        <button className="btn_event team" type="submit"><FontAwesomeIcon icon="users" /> Create Teams</button>
         <input type="number" name="teamcount" onChange={this.handleTeamCountChange} value ={this.state.teamcount} min="2" max="6"/>
         </form>
+        </div>
       </div>
     )
   }
