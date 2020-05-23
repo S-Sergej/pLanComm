@@ -44,6 +44,10 @@ passport.use(
 
 //Google Auth
 
+if (![process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, process.env.GOOGLE_CALLBACK_URL].every(Boolean)) {
+  throw new Error("message");
+}
+
 passport.use(
   new GoogleStrategy(
   {
