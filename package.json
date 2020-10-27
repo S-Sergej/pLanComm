@@ -39,7 +39,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-google-token": "^0.1.2",
     "passport-local": "^1.0.0",
-    "react-google-login": "^5.1.20",
+    "react-google-login": "^5.1.22",
     "serve-favicon": "^2.5.0",
     "superagent": "^5.2.2",
     "underscore.string": "^3.3.5",
