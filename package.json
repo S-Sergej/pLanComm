@@ -25,7 +25,7 @@
     "js-yaml": "^3.14.0",
     "jsonwebtoken": "^8.5.1",
     "kind-of": "^6.0.3",
-    "marked": "^1.1.0",
+    "marked": "^2.0.1",
     "minimist": "^1.2.5",
     "mongoose": "^5.9.16",
     "mongoose-findorcreate": "^3.0.0",
