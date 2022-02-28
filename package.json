@@ -20,7 +20,7 @@
     "express": "^4.16.3",
     "express-server": "^0.7.0",
     "express-session": "^1.17.2",
-    "google-auth-library": "^6.0.0",
+    "google-auth-library": "^7.14.0",
     "hbs": "^4.1.2",
     "js-yaml": "^3.14.0",
     "jsonwebtoken": "^8.5.1",
