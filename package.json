@@ -46,7 +46,7 @@
     "utils": "^0.3.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.19"
   },
   "nodemonConfig": {
     "ignore": [
