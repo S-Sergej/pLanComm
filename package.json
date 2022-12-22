@@ -23,7 +23,7 @@
     "google-auth-library": "^6.0.0",
     "hbs": "^4.1.2",
     "js-yaml": "^3.14.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "kind-of": "^6.0.3",
     "marked": "^2.1.2",
     "minimist": "^1.2.5",
